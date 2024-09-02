@@ -19,11 +19,12 @@ To run the Finance Data Comparison application, you need:
 - Internet connection to load external libraries
 - Files in CSV format to upload for comparison
 
-**Note**: *Files to be uploaded are already present in repository inside internal_files and external_files folder.*
+**Note**: _Files to be uploaded are already present in repository inside internal_files and external_files folder._
 
 ### Installation
 
 1. **Clone the Repository**
+
    ```sh
    git clone https://code.gramener.com/cto/financedatacomparison.git
    ```
@@ -34,4 +35,4 @@ To run the Finance Data Comparison application, you need:
    npm start
    ```
 
-**Note**: *To run application locally python is a pre-requisite.*
+**Note**: _To run application locally python is a pre-requisite._

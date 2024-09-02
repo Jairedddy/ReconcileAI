@@ -2,6 +2,7 @@ import os
 import csv
 import argparse
 
+
 def preprocess_file(file_path):
     # Preprocess the file to remove null characters and replace them with empty strings
     temp_file_path = f"{file_path}.tmp"
@@ -14,6 +15,7 @@ def preprocess_file(file_path):
 
     return temp_file_path
 
+
 def convert_files(folder_path):
     for file_name in os.listdir(folder_path):
         file_path = os.path.join(folder_path, file_name)
@@ -22,11 +24,14 @@ def convert_files(folder_path):
         if os.path.isfile(file_path) and file_name.endswith(".csv"):
             # Preprocess the file to remove null characters
             preprocessed_file_path = preprocess_file(file_path)
-            new_file_path = os.path.join(folder_path, f"{os.path.splitext(file_name)[0]}_fixed.csv")
+            new_file_path = os.path.join(
+                folder_path, f"{os.path.splitext(file_name)[0]}_fixed.csv"
+            )
 
             try:
-                with open(preprocessed_file_path, 'r', encoding='utf-8', errors='replace') as infile, \
-                     open(new_file_path, 'w', newline='', encoding='utf-8') as outfile:
+                with open(
+                    preprocessed_file_path, 'r', encoding='utf-8', errors='replace'
+                ) as infile, open(new_file_path, 'w', newline='', encoding='utf-8') as outfile:
                     reader = csv.reader(infile, delimiter='|')
                     csv_writer = csv.writer(outfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
 
@@ -47,9 +52,14 @@ def convert_files(folder_path):
 
     print("Conversion complete.")
 
+
 def main():
-    parser = argparse.ArgumentParser(description="Convert CSV files with '|' delimiter to proper CSV format with ',' delimiter.")
-    parser.add_argument('folder_path', type=str, help='Path to the folder containing the files to convert')
+    parser = argparse.ArgumentParser(
+        description="Convert CSV files with '|' delimiter to proper CSV format with ',' delimiter."
+    )
+    parser.add_argument(
+        'folder_path', type=str, help='Path to the folder containing the files to convert'
+    )
 
     args = parser.parse_args()
 
@@ -60,6 +70,7 @@ def main():
         return
 
     convert_files(folder_path)
+
 
 if __name__ == "__main__":
     main()

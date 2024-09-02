@@ -83,8 +83,8 @@ const formTemplate = html`<h2 class="text-center">Finance Data Comparison Tool</
     upload internal and external CSV files, input ISIN numbers for comparison, and view the results directly on the
     dashboard. The interface provides real-time status updates on file uploads, highlights matched and unmatched
     entries, and offers options to resolve mismatches. The results and processing report are dynamically updated to
-    provide clear insights into the finance data comparison process. The dashboard uses a responsive layout with Bootstrap for a
-    polished and user-friendly experience.
+    provide clear insights into the finance data comparison process. The dashboard uses a responsive layout with
+    Bootstrap for a polished and user-friendly experience.
   </p>
 
   <!-- Static Section for File Uploads and Input -->
@@ -124,7 +124,7 @@ const initializeApp = async () => {
         html`<div class="text-center my-5">
           <a class="btn btn-primary btn-lg" href="${loginUrl}">Log into LLM Foundry to use this app</a>
         </div>`,
-        $login
+        $login,
       );
     } else {
       render(formTemplate, $output);
@@ -310,8 +310,8 @@ const updateReportTable = (reportData, section) => {
                     ${row.aiSuggestion?.status === "-"
                       ? html`<span class="text-muted">${row.aiSuggestion?.status}</span>`
                       : row.aiSuggestion?.status
-                      ? html`<i class="bi bi-check-circle text-success" title="AI Suggestion Approved"></i>`
-                      : html`<i class="bi bi-x-circle text-danger" title="AI Suggestion Rejected"></i>`}
+                        ? html`<i class="bi bi-check-circle text-success" title="AI Suggestion Approved"></i>`
+                        : html`<i class="bi bi-x-circle text-danger" title="AI Suggestion Rejected"></i>`}
                   </td>
                   <td title="${row.aiSuggestion?.reason}" class="text-muted">${truncate(row.aiSuggestion?.reason)}</td>
                   <td class="text-center">
@@ -363,7 +363,7 @@ const updateReportTable = (reportData, section) => {
         <tbody>
           ${summaryMapping.flatMap((category) => {
             const categoryRows = curReportData.filter(
-              (row) => row.fieldName === category && row.internalValue !== row.externalValue
+              (row) => row.fieldName === category && row.internalValue !== row.externalValue,
             );
             // Count occurrences of each issue within the category
             const issueCounts = categoryRows.reduce((acc, row) => {
@@ -403,7 +403,7 @@ const updateReportTable = (reportData, section) => {
                         : html`<span class="text-muted">-</span>`}
                     </td>
                   </tr>
-                `
+                `,
               ),
             ];
           })}
@@ -425,7 +425,7 @@ const updateReportTable = (reportData, section) => {
               <li class="page-item ${currentPage === page ? "active" : ""}">
                 <button class="page-link" @click=${() => changePage(page)}>${page}</button>
               </li>
-            `
+            `,
           )}
           <li class="page-item ${currentPage === Math.ceil(curReportData.length / rowsPerPage) ? "disabled" : ""}">
             <button class="page-link" @click=${() => changePage(currentPage + 1)}>

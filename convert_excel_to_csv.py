@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 
+
 def convert_and_remove_excel_files(folder_path):
     # Loop through all files in the specified folder
     for file_name in os.listdir(folder_path):
@@ -21,6 +22,7 @@ def convert_and_remove_excel_files(folder_path):
             os.remove(excel_file_path)
 
             print(f"Converted and removed: {file_name} -> {os.path.basename(csv_file_path)}")
+
 
 # Example usage
 convert_and_remove_excel_files('./external_files')

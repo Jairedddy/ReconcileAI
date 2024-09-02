@@ -105,12 +105,30 @@ const formTemplate = html`<h2 class="text-center">Finance Data Comparison Tool</
     <div class="form-group mt-2">
       <label for="isinInput">Enter ISIN numbers (comma-separated):</label>
       <input type="text" id="isinInput" class="form-control" placeholder="ISIN1, ISIN2, ISIN3" />
-      <button type="button" class="btn btn-success mt-2" id="compareButton">Compare Files</button>
+      <button type="button" class="btn btn-success mt-2" id="compareButton" disabled>Compare Files</button>
     </div>
   </form>
 
   <!-- Dynamic Report Table -->
   <div id="report-section" class="mt-5"></div>`;
+
+// Function to check if both file inputs have files selected
+const checkFilesUploaded = () => {
+  const internalFile = document.getElementById("internalFile").files.length;
+  const externalFile = document.getElementById("externalFile").files.length;
+  const compareButton = document.getElementById("compareButton");
+
+  // Enable the button if both inputs have files selected, otherwise disable it
+  if (internalFile > 0 && externalFile > 0) {
+    compareButton.disabled = false;
+    compareButton.classList.remove("btn-secondary");
+    compareButton.classList.add("btn-success");
+  } else {
+    compareButton.disabled = true;
+    compareButton.classList.remove("btn-success");
+    compareButton.classList.add("btn-secondary");
+  }
+};
 
 const initializeApp = async () => {
   try {
@@ -128,6 +146,7 @@ const initializeApp = async () => {
       );
     } else {
       render(formTemplate, $output);
+      checkFilesUploaded();
       setupEventListeners();
     }
   } catch (error) {
@@ -227,6 +246,10 @@ const downloadCSV = (data) => {
 };
 
 const setupEventListeners = () => {
+  // Event listeners for file input changes
+  document.getElementById("internalFile").addEventListener("change", checkFilesUploaded);
+  document.getElementById("externalFile").addEventListener("change", checkFilesUploaded);
+
   document.querySelector("#compareButton").addEventListener("click", compareISIN);
   // Add event listener for the "Enter" key on the form
   document.querySelector("#upload-form").addEventListener("keydown", function (event) {
@@ -379,7 +402,7 @@ const updateReportTable = (reportData, section) => {
             return [
               html`
                 <tr>
-                  <td>${category}</td>
+                  <td class="font-weight-bold">${category}</td>
                   <td colspan="4"></td>
                 </tr>
               `,

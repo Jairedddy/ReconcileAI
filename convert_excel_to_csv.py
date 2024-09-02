@@ -5,6 +5,7 @@ import logging
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
+
 def convert_and_remove_excel_files(folder_path):
     # Loop through all files in the specified folder
     for file_name in os.listdir(folder_path):
@@ -26,7 +27,9 @@ def convert_and_remove_excel_files(folder_path):
                 # Remove the original Excel file
                 os.remove(excel_file_path)
 
-                logging.info(f"Converted and removed: {file_name} -> {os.path.basename(csv_file_path)}")
+                logging.info(
+                    f"Converted and removed: {file_name} -> {os.path.basename(csv_file_path)}"
+                )
 
             except Exception as e:
                 logging.error(f"Error processing file {file_name}: {e}")

@@ -6,6 +6,7 @@ import logging
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
+
 def preprocess_file(file_path):
     # Preprocess the file to remove null characters and replace them with empty strings
     temp_file_path = f"{file_path}.tmp"

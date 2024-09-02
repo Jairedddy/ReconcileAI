@@ -1,0 +1,33 @@
+{
+  "name": "financedatacomparison",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "python -m http.server 8000"
+  },
+  "author": "aayush.thakur@gramener.com",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint-plugin-html": "^8.1.1"
+  },
+  "prettier": {
+    "printWidth": 120
+  },
+  "eslintConfig": {
+    "root": true,
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "env": {
+      "browser": true,
+      "es2022": true,
+      "jest": true
+    },
+    "plugins": [
+      "html"
+    ],
+    "extends": "eslint:recommended"
+  }
+}

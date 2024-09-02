@@ -1,0 +1,534 @@
+FundCode,port_mgr_name,port_mgr_role_desc,effective_from_date,display_order
+153,Zoey Zhu,Portfolio Manager,2020-05-01T00:00:00.000Z,2
+DBGREF,Greg Kuhl,Portfolio Manager,2020-08-01T00:00:00.000Z,3
+TDAE,Taf Mugwagwa,Portfolio Manager,2020-01-22T00:00:00.000Z,3
+71,Andy Acker,Portfolio Manager,2007-05-01T00:00:00.000Z,1
+TABETC,Tabula Investment Management Limited,Portfolio Manager,2024-04-16T00:00:00.000Z,1
+04,Greg Wilensky,Portfolio Manager,2020-02-01T00:00:00.000Z,1
+84JSF,Tom Ross,Portfolio Manager,2022-10-01T00:00:00.000Z,1
+847,Jeremiah Buckley,Portfolio Manager,2019-11-18T00:00:00.000Z,1
+HC5O,Pete Webster,Portfolio Manager,2023-07-07T00:00:00.000Z,3
+JHUGSE,Aaron Scully,Portfolio Manager,2022-01-26T00:00:00.000Z,2
+TALG,Jay Sivapalan,Portfolio Manager,2018-03-08T00:00:00.000Z,2
+UKIOUE,James Henderson,Portfolio Manager,2005-01-01T00:00:00.000Z,2
+HHFGHY,Brent Olson,Portfolio Manager,2021-09-01T00:00:00.000Z,2
+60,Joshua Cummings,Portfolio Manager,2024-01-26T00:00:00.000Z,2
+142,Kevin Preloger,Portfolio Manager,2019-08-01T00:00:00.000Z,1
+USGSEF,Hamish Chamberlayne,Portfolio Manager,2020-06-25T00:00:00.000Z,1
+848,Colin Fleury,Portfolio Manager,2024-06-01T00:00:00.000Z,4
+04,Michael Keough,Portfolio Manager,2015-12-31T00:00:00.000Z,2
+12,Matt Peron,Portfolio Manager,2020-04-13T00:00:00.000Z,1
+72,Denny Fish,Portfolio Manager,2016-01-12T00:00:00.000Z,1
+JHAFSL,Colin Fleury,Portfolio Manager,2023-06-19T00:00:00.000Z,4
+UIAE,John Pattullo,Portfolio Manager,2008-12-01T00:00:00.000Z,2
+17,Garrett Strum,Portfolio Manager,2017-05-08T00:00:00.000Z,1
+63,Jeremiah Buckley,Portfolio Manager,2015-12-31T00:00:00.000Z,1
+FMPE27,James Briggs,Portfolio Manager,2023-11-02T00:00:00.000Z,1
+PCGOPI,Daniel J. Graña,Portfolio Manager,2022-03-01T00:00:00.000Z,1
+FIUUUF,John Pattullo,Portfolio Manager,2011-06-10T00:00:00.000Z,2
+NSMOUE,Pete Webster,Portfolio Manager,2023-07-07T00:00:00.000Z,3
+61,Brian Demain,Portfolio Manager,2007-11-01T00:00:00.000Z,1
+GPESEI,John Bennett,Portfolio Manager,2010-01-14T00:00:00.000Z,3
+75,Nick Schommer,Portfolio Manager,2017-07-03T00:00:00.000Z,1
+EMKARF,Daniel Siluk,Portfolio Manager,2019-07-01T00:00:00.000Z,1
+82JSF,Nick Schommer,Portfolio Manager,2017-04-28T00:00:00.000Z,2
+HHFM,Steve Cain,Portfolio Manager,2020-06-03T00:00:00.000Z,2
+JUKGHY,Seth Meyer,Portfolio Manager,2020-12-01T00:00:00.000Z,4
+JUSE10,Hamish Chamberlayne,Portfolio Manager,2021-09-08T00:00:00.000Z,1
+88,Denny Fish,Portfolio Manager,2016-01-12T00:00:00.000Z,1
+147,John Kerschner,Portfolio Manager,2014-02-28T00:00:00.000Z,2
+KAETPOF,Dylan Bourke,Portfolio Manager,2024-02-01T00:00:00.000Z,2
+FMPE27,Tim Winstone,Portfolio Manager,2023-11-02T00:00:00.000Z,2
+06,Joshua Cummings,Portfolio Manager,2024-01-26T00:00:00.000Z,2
+142,Justin Tugman,Portfolio Manager,2019-08-01T00:00:00.000Z,2
+GMSF,David Elms,Portfolio Manager,2006-06-01T00:00:00.000Z,1
+HATINT,Jay Sivapalan,Portfolio Manager,2016-05-26T00:00:00.000Z,2
+81JSF,Greg Wilensky,Portfolio Manager,2020-02-01T00:00:00.000Z,2
+GTEOTI,Richard Clode,Portfolio Manager,2018-03-29T00:00:00.000Z,3
+SXUS10,Hamish Chamberlayne,Portfolio Manager,2021-09-08T00:00:00.000Z,1
+JUSE10,Aaron Scully,Portfolio Manager,2021-09-08T00:00:00.000Z,2
+FIUUUF,Jenna Barnard,Portfolio Manager,2012-09-17T00:00:00.000Z,1
+203,Nick Harper,Portfolio Manager,2024-06-07T00:00:00.000Z,2
+DTFLUX,Rob Shimell,Portfolio Manager,2023-10-02T00:00:00.000Z,2
+154,Zoey Zhu,Portfolio Manager,2020-05-01T00:00:00.000Z,2
+83,Michael Keough,Portfolio Manager,2015-12-31T00:00:00.000Z,2
+TABGST,Tabula Investment Management Limited,Portfolio Manager,2020-08-18T00:00:00.000Z,1
+GEAOPE,John Bennett,Portfolio Manager,2010-12-01T00:00:00.000Z,2
+VNLA10,Addison Maier,Portfolio Manager,2024-03-01T00:00:00.000Z,2
+APGR,Luke Newman,Portfolio Manager,2017-04-03T00:00:00.000Z,2
+TDAE,Shan Kwee,Portfolio Manager,2020-01-22T00:00:00.000Z,2
+113,Scott Stutzman,Portfolio Manager,2016-07-01T00:00:00.000Z,2
+83JSF,John Lloyd,Portfolio Manager,2024-06-01T00:00:00.000Z,3
+HHFGSC,Nick Sheridan,Portfolio Manager,2019-08-06T00:00:00.000Z,1
+863,James Briggs,Portfolio Manager,2024-05-20T00:00:00.000Z,1
+HHFSBF,John Pattullo,Portfolio Manager,2017-07-26T00:00:00.000Z,2
+JHAEME,Matthew Culley,Portfolio Manager,2023-08-09T00:00:00.000Z,2
+GPESEI,Tom Lemaigre,Portfolio Manager,2022-02-28T00:00:00.000Z,2
+201,Ashwin Alankar,Portfolio Manager,2014-09-01T00:00:00.000Z,1
+VNLA10,Daniel Siluk,Portfolio Manager,2016-11-16T00:00:00.000Z,1
+JAAA10,Nick Childs,Portfolio Manager,2020-10-16T00:00:00.000Z,2
+74,Jonathan Cofsky,Portfolio Manager,2022-03-01T00:00:00.000Z,2
+GEAOPE,Robert Schramm-Fuchs,Portfolio Manager,2018-04-30T00:00:00.000Z,1
+AEBIFU,John Bennett,Portfolio Manager,2014-09-25T00:00:00.000Z,3
+FMPE27,Michael Keough,Portfolio Manager,2023-11-02T00:00:00.000Z,3
+HHFSBF,Nicholas Ware,Portfolio Manager,2024-07-01T00:00:00.000Z,3
+JHSI10,John Kerschner,Portfolio Manager,2023-11-08T00:00:00.000Z,1
+57,Brent Olson,Portfolio Manager,2019-06-28T00:00:00.000Z,2
+HSOEJI,Diversified Alternatives Team,Portfolio Manager,2005-12-01T00:00:00.000Z,1
+HESZPE,Rory Stokes,Portfolio Manager,2015-07-31T00:00:00.000Z,2
+42,Brian Recht,Portfolio Manager,2022-03-01T00:00:00.000Z,3
+HHFSBF,Oliver Bardot,Portfolio Manager,2023-01-01T00:00:00.000Z,4
+HHCZCA,Victoria Mio,Portfolio Manager,2024-04-01T00:00:00.000Z,1
+814,Daniel Siluk,Portfolio Manager,2021-06-15T00:00:00.000Z,1
+147,Seth Meyer,Lead Portfolio Manager,2014-02-28T00:00:00.000Z,1
+HHFEGF,Marc Schartz,Portfolio Manager,2017-12-01T00:00:00.000Z,1
+HHFGHY,Tim Winstone,Portfolio Manager,2021-09-01T00:00:00.000Z,3
+81JSF,Michael Keough,Portfolio Manager,2019-12-03T00:00:00.000Z,3
+81,Greg Wilensky,Portfolio Manager,2020-02-01T00:00:00.000Z,2
+UKIOUE,Laura Foll,Lead Portfolio Manager,2014-11-10T00:00:00.000Z,1
+102,Justin Tugman,Portfolio Manager,2015-03-19T00:00:00.000Z,2
+HGMSNZ,Steve Cain,Portfolio Manager,2024-04-11T00:00:00.000Z,2
+STRI,James Henderson,Portfolio Manager,2007-01-19T00:00:00.000Z,1
+JSCB10,Michael Keough,Portfolio Manager,2021-09-08T00:00:00.000Z,1
+09,Brian Demain,Portfolio Manager,2007-11-01T00:00:00.000Z,1
+105,Kevin Preloger,Portfolio Manager,2013-04-01T00:00:00.000Z,1
+ASCR,Shan Kwee,Portfolio Manager,2023-02-07T00:00:00.000Z,2
+DPTUCV,Pete Webster,Portfolio Manager,2023-07-07T00:00:00.000Z,3
+UEFM,Marc Schartz,Portfolio Manager,2024-06-18T00:00:00.000Z,2
+814,Addison Maier,Portfolio Manager,2024-03-01T00:00:00.000Z,2
+06,Matt Peron,Portfolio Manager,2020-04-13T00:00:00.000Z,1
+AUT100,Joshua Cummings,Portfolio Manager,2024-01-26T00:00:00.000Z,2
+NSMOUE,Tihana Ibrahimpasic,Portfolio Manager,2021-01-01T00:00:00.000Z,1
+TABUSI,Tabula Investment Management Limited,Portfolio Manager,2020-10-22T00:00:00.000Z,1
+HHFBTF,Agustin Mohedas,Portfolio Manager,2023-01-31T00:00:00.000Z,3
+08,Michael Keough,Portfolio Manager,2019-12-03T00:00:00.000Z,3
+03,Jonathan Coleman,Portfolio Manager,2013-05-13T00:00:00.000Z,1
+SMD100,Zoey Zhu,Portfolio Manager,2024-05-01T00:00:00.000Z,2
+06,John Jordan,Portfolio Manager,2024-01-26T00:00:00.000Z,3
+HAFIWT,Jay Sivapalan,Portfolio Manager,2004-12-31T00:00:00.000Z,1
+GEMSMI,Daniel J. Graña,Portfolio Manager,2019-11-01T00:00:00.000Z,1
+72,Jonathan Cofsky,Portfolio Manager,2022-03-01T00:00:00.000Z,2
+JUKGHY,Tom Ross,Portfolio Manager,2020-12-01T00:00:00.000Z,1
+TEGIPE,Rory Stokes,Fund Manager,2014-09-01T00:00:00.000Z,2
+USGSEF,Aaron Scully,Portfolio Manager,2020-06-25T00:00:00.000Z,2
+GSLOEI,Tom Lemaigre,Portfolio Manager,2022-02-28T00:00:00.000Z,2
+HAPZPE,John Bennett,Portfolio Manager,2010-12-01T00:00:00.000Z,2
+HHFBTF,Andy Acker,Portfolio Manager,2018-12-10T00:00:00.000Z,1
+57,Seth Meyer,Portfolio Manager,2015-12-31T00:00:00.000Z,3
+HIOBDQ,Helen Anthony,Portfolio Manager,2022-11-01T00:00:00.000Z,1
+HACSEN,Shan Kwee,Portfolio Manager,2018-12-11T00:00:00.000Z,2
+GGFSGI,Julian McManus,Portfolio Manager,2023-02-01T00:00:00.000Z,1
+83JSF,Michael Keough,Portfolio Manager,2015-12-31T00:00:00.000Z,2
+68,Brian Recht,Portfolio Manager,2022-03-01T00:00:00.000Z,3
+88,Jonathan Cofsky,Portfolio Manager,2022-03-01T00:00:00.000Z,2
+HAAFIT,Jay Sivapalan,Portfolio Manager,2004-12-31T00:00:00.000Z,1
+AOCT,Luke Newman,Portfolio Manager,2013-02-05T00:00:00.000Z,2
+GUSOGF,Doug Rao,Portfolio Manager,2017-12-08T00:00:00.000Z,1
+LOWIUE,Laura Foll,Portfolio Manager,2016-12-13T16:08:16.257Z,2
+HACEWT,Shan Kwee,Portfolio Manager,2018-12-11T00:00:00.000Z,2
+91JSF,Kevin Preloger,Portfolio Manager,2021-09-30T00:00:00.000Z,1
+GCOSPE,Tom O'Hara,Portfolio Manager,2020-01-31T00:00:00.000Z,1
+JBBB10,Nick Childs,Portfolio Manager,2022-01-11T00:00:00.000Z,2
+04,John Lloyd,Portfolio Manager,2024-06-01T00:00:00.000Z,3
+TABAPS,Haitong International Asset Management (HK) Limited,Portfolio Manager,2023-12-21T00:00:00.000Z,1
+HHFGHY,Seth Meyer,Portfolio Manager,2017-05-30T00:00:00.000Z,4
+IIPUCV,Tihana Ibrahimpasic,Portfolio Manager,2021-01-01T00:00:00.000Z,1
+89JSF,Daniel Lyons,Portfolio Manager,2023-01-31T00:00:00.000Z,2
+USGREF,Greg Kuhl,Portfolio Manager,2019-03-29T00:00:00.000Z,3
+GSMSUS,Julia Scheufler,Portfolio Manager,2024-01-31T00:00:00.000Z,3
+UIAE,Nicholas Ware,Portfolio Manager,2024-07-01T00:00:00.000Z,3
+SML100,Benjamin Wang,Portfolio Manager,2016-02-23T00:00:00.000Z,1
+08,Jeremiah Buckley,Portfolio Manager,2015-12-31T00:00:00.000Z,1
+62,John Jordan,Portfolio Manager,2024-01-26T00:00:00.000Z,3
+HC5O,James de Bunsen,Portfolio Manager,2023-07-07T00:00:00.000Z,2
+HIFOUE,Ben Lofthouse,Portfolio Manager,2012-05-08T00:00:00.000Z,1
+JUKGHY,Tim Winstone,Portfolio Manager,2021-09-01T00:00:00.000Z,3
+GEMSMI,Matthew Culley,Portfolio Manager,2022-03-01T00:00:00.000Z,2
+HIOBDQ,Arjun Bhandari,Portfolio Manager,2023-06-12T00:00:00.000Z,2
+USEMB,Matthew Culley,Portfolio Manager,2022-03-01T00:00:00.000Z,2
+GSLOEI,John Bennett,Portfolio Manager,2010-02-01T00:00:00.000Z,3
+03,Scott Stutzman,Portfolio Manager,2016-07-01T00:00:00.000Z,2
+USGREF,Guy Barnard,Portfolio Manager,2017-06-05T00:00:00.000Z,1
+UIAE,Jenna Barnard,Portfolio Manager,2008-12-01T00:00:00.000Z,1
+202,Nick Harper,Portfolio Manager,2024-06-07T00:00:00.000Z,2
+NPOT,Andrew Jones,Portfolio Manager,2021-03-10T00:00:00.000Z,2
+GEUOEI,Robert Schramm-Fuchs,Portfolio Manager,2024-02-01T00:00:00.000Z,1
+66,Christopher O'Malley,Portfolio Manager,2024-01-26T00:00:00.000Z,2
+08,Greg Wilensky,Portfolio Manager,2020-02-01T00:00:00.000Z,2
+03,Aaron Schaechterle,Portfolio Manager,2023-09-01T00:00:00.000Z,3
+EMKARP,Daniel Siluk,Portfolio Manager,2022-08-01T00:00:00.000Z,1
+HEPZPP,Guy Barnard,Portfolio Manager,2010-08-31T00:00:00.000Z,1
+12,John Jordan,Portfolio Manager,2024-01-26T00:00:00.000Z,3
+64,Michael Keough,Portfolio Manager,2015-12-31T00:00:00.000Z,2
+USGREF,Tim Gibson,Portfolio Manager,2017-06-05T00:00:00.000Z,2
+NPOT,Tim Winstone,Portfolio Manager,2022-04-30T00:00:00.000Z,3
+148,Addison Maier,Portfolio Manager,2024-03-01T00:00:00.000Z,2
+ACAP,Robert Schramm-Fuchs,Portfolio Manager,2018-04-30T00:00:00.000Z,1
+UGEI,Ben Lofthouse,Portfolio Manager,2014-11-30T00:00:00.000Z,1
+GCOSPE,John Bennett,Portfolio Manager,2010-01-31T00:00:00.000Z,3
+847,Greg Wilensky,Portfolio Manager,2019-11-18T00:00:00.000Z,2
+LOWIUE,James Henderson,Portfolio Manager,1990-01-01T00:00:00.000Z,1
+60,John Jordan,Portfolio Manager,2024-01-26T00:00:00.000Z,3
+JHUSSE,Aaron Scully,Portfolio Manager,2022-09-20T00:00:00.000Z,2
+100,Justin Tugman,Portfolio Manager,2009-03-13T00:00:00.000Z,1
+81,Michael Keough,Portfolio Manager,2019-12-03T00:00:00.000Z,3
+GMSF,Steve Cain,Portfolio Manager,2012-01-01T00:00:00.000Z,2
+GFFOFF,John Jordan,Portfolio Manager,2017-09-01T00:00:00.000Z,1
+HC5O,Tihana Ibrahimpasic,Portfolio Manager,2021-01-01T00:00:00.000Z,1
+TABAPS,Tabula Investment Management Limited,Portfolio Manager,2023-12-21T00:00:00.000Z,2
+64,Greg Wilensky,Portfolio Manager,2020-02-01T00:00:00.000Z,1
+EMKARF,Dylan Bourke,Portfolio Manager,2020-07-01T00:00:00.000Z,2
+GUSOGF,Nick Schommer,Portfolio Manager,2017-12-08T00:00:00.000Z,2
+DTFLUX,Mark Richardson,Portfolio Manager,2023-10-02T00:00:00.000Z,1
+JHGLSO,Daniel Lyons,Portfolio Manager,2023-09-14T00:00:00.000Z,2
+JHGLSO,Andy Acker,Portfolio Manager,2023-09-14T00:00:00.000Z,1
+TCLIUE,Job Curtis,Portfolio Manager,1991-01-01T00:00:00.000Z,1
+HAINFT,Shan Kwee,Portfolio Manager,2018-12-11T00:00:00.000Z,2
+HHFGHY,Tom Ross,Portfolio Manager,2015-08-01T00:00:00.000Z,1
+JUKGHY,Brent Olson,Portfolio Manager,2021-09-01T00:00:00.000Z,2
+09,Philip Cody Wheaton,Portfolio Manager,2016-07-01T00:00:00.000Z,2
+USAD,Ben Lofthouse,Portfolio Manager,2014-11-30T00:00:00.000Z,1
+USAEFI,Daniel J. Graña,Portfolio Manager,2022-03-01T00:00:00.000Z,1
+HINI,Ben Lofthouse,Portfolio Manager,2011-04-28T00:00:00.000Z,1
+ACAP,John Bennett,Portfolio Manager,2012-12-17T00:00:00.000Z,2
+BIF2,Agustin Mohedas,Portfolio Manager,2024-08-01T00:00:00.000Z,3
+NPOT,Brad Smith,Portfolio Manager,2022-04-30T00:00:00.000Z,4
+66,Julian McManus,Portfolio Manager,2018-01-01T00:00:00.000Z,1
+GUKSAF,Luke Newman,Portfolio Manager,2010-03-31T00:00:00.000Z,2
+148,Daniel Siluk,Portfolio Manager,2021-06-15T00:00:00.000Z,1
+HSOENI,Diversified Alternatives Team,Portfolio Manager,2006-02-24T00:00:00.000Z,1
+817,Ashwin Alankar,Portfolio Manager,2016-04-05T00:00:00.000Z,1
+863,Brad Smith,Portfolio Manager,2024-05-20T00:00:00.000Z,4
+HGMUSF,David Elms,Portfolio Manager,2020-06-03T00:00:00.000Z,1
+GPUK,Tim Gibson,Portfolio Manager,2023-01-11T00:00:00.000Z,2
+GPUK,Guy Barnard,Portfolio Manager,2023-01-11T00:00:00.000Z,1
+42,Nick Schommer,Portfolio Manager,2016-01-12T00:00:00.000Z,2
+USEMB,Daniel J. Graña,Portfolio Manager,2019-09-16T00:00:00.000Z,1
+89JSF,Andy Acker,Portfolio Manager,2021-08-16T00:00:00.000Z,1
+JMBS10,John Kerschner,Portfolio Manager,2018-09-12T00:00:00.000Z,1
+HHFBTF,Daniel Lyons,Portfolio Manager,2018-12-10T00:00:00.000Z,2
+FMPE27,Brad Smith,Portfolio Manager,2023-11-02T00:00:00.000Z,4
+GSMSUS,Ollie Beckett,Portfolio Manager,2011-03-31T00:00:00.000Z,1
+16,Garrett Strum,Portfolio Manager,2017-05-08T00:00:00.000Z,1
+85,Greg Wilensky,Portfolio Manager,2020-02-01T00:00:00.000Z,1
+172,Justin Tugman,Portfolio Manager,2024-07-23T00:00:00.000Z,1
+JHAFSL,Tim Elliot,Portfolio Manager,2023-06-19T00:00:00.000Z,2
+81,Jeremiah Buckley,Portfolio Manager,2015-12-31T00:00:00.000Z,1
+EMKARP,Dylan Bourke,Portfolio Manager,2018-08-18T00:00:00.000Z,2
+FIUUUF,Oliver Bardot,Portfolio Manager,2024-07-01T00:00:00.000Z,4
+83JSF,Greg Wilensky,Portfolio Manager,2020-02-01T00:00:00.000Z,1
+11,Greg Wilensky,Portfolio Manager,2020-02-01T00:00:00.000Z,1
+HESZPE,Julia Scheufler,Portfolio Manager,2024-01-31T00:00:00.000Z,3
+HHUSSE,Aaron Scully,Portfolio Manager,2021-08-03T00:00:00.000Z,2
+64,John Lloyd,Portfolio Manager,2024-06-01T00:00:00.000Z,3
+CAST,David Elms,Portfolio Manager,2017-04-01T00:00:00.000Z,1
+DBGREF,Tim Gibson,Portfolio Manager,2017-12-15T00:00:00.000Z,2
+848,Seth Meyer,Lead Portfolio Manager,2019-12-04T00:00:00.000Z,1
+ALPF,Shan Kwee,Portfolio Manager,2020-12-01T00:00:00.000Z,2
+HHFGSE,Aaron Scully,Portfolio Manager,2020-07-01T00:00:00.000Z,2
+JRE100,Greg Kuhl,Portfolio Manager,2021-06-22T00:00:00.000Z,1
+JMBS10,Nick Childs,Portfolio Manager,2018-09-12T00:00:00.000Z,2
+848JSF,Seth Meyer,Portfolio Manager,2020-09-30T00:00:00.000Z,1
+SML100,Zoey Zhu,Portfolio Manager,2024-05-01T00:00:00.000Z,2
+HHFGSE,Hamish Chamberlayne,Portfolio Manager,2019-05-29T00:00:00.000Z,1
+UKAOUE,Indriatti van Hien,Portfolio Manager,2017-05-01T00:00:00.000Z,2
+UKAOUE,Neil Hermon,Portfolio Manager,2013-02-01T00:00:00.000Z,1
+USAEFI,Matthew Culley,Portfolio Manager,2022-03-01T00:00:00.000Z,2
+203,Ashwin Alankar,Portfolio Manager,2014-09-01T00:00:00.000Z,1
+863,Michael Keough,Portfolio Manager,2024-05-20T00:00:00.000Z,3
+NPOT,Hamish Chamberlayne,Portfolio Manager,2013-12-31T00:00:00.000Z,1
+TCLIUE,David Smith,Deputy Fund Manager,2021-07-22T00:00:00.000Z,2
+153,Benjamin Wang,Portfolio Manager,2016-04-07T00:00:00.000Z,1
+84JSF,Brent Olson,Portfolio Manager,2019-06-28T00:00:00.000Z,2
+61,Philip Cody Wheaton,Portfolio Manager,2016-07-01T00:00:00.000Z,2
+JSCB10,Brad Smith,Portfolio Manager,2021-09-08T00:00:00.000Z,2
+HIFOUE,Andrew Jones,Portfolio Manager,2012-05-08T00:00:00.000Z,2
+155,Zoey Zhu,Portfolio Manager,2020-05-01T00:00:00.000Z,2
+NSMOUE,James de Bunsen,Portfolio Manager,2023-07-07T00:00:00.000Z,2
+UGEI,Alex Crooke,Portfolio Manager,2006-11-30T00:00:00.000Z,2
+JAAA10,John Kerschner,Portfolio Manager,2020-10-16T00:00:00.000Z,1
+80,Nick Schommer,Portfolio Manager,2017-07-03T00:00:00.000Z,1
+JHSFTF,Alison Porter,Portfolio Manager,2021-08-03T00:00:00.000Z,2
+105,Justin Tugman,Portfolio Manager,2015-03-19T00:00:00.000Z,2
+113,Jonathan Coleman,Lead Portfolio Manager,2013-05-13T00:00:00.000Z,1
+848,John Lloyd,Portfolio Manager,2019-12-04T00:00:00.000Z,3
+57,Tom Ross,Portfolio Manager,2022-10-01T00:00:00.000Z,1
+JHSFTF,Richard Clode,Portfolio Manager,2021-08-03T00:00:00.000Z,3
+42,Doug Rao,Portfolio Manager,2013-06-03T00:00:00.000Z,1
+89,Andy Acker,Portfolio Manager,2007-05-01T00:00:00.000Z,1
+HEPZPP,Nicolas Scherf,Portfolio Manager,2018-04-27T00:00:00.000Z,2
+05,Jeremiah Buckley,Portfolio Manager,2014-07-25T00:00:00.000Z,1
+HGMUSF,Steve Cain,Portfolio Manager,2020-06-03T00:00:00.000Z,2
+82JSF,Doug Rao,Portfolio Manager,2017-04-28T00:00:00.000Z,1
+814,Dylan Bourke,Portfolio Manager,2021-06-15T00:00:00.000Z,3
+81JSF,Jeremiah Buckley,Portfolio Manager,2015-12-31T00:00:00.000Z,1
+AEBIFU,Robert Schramm-Fuchs,Portfolio Manager,2024-02-01T00:00:00.000Z,1
+JHSFTF,Graeme Clark,Portfolio Manager,2021-08-03T00:00:00.000Z,1
+AOCT,Ben Wallace,Portfolio Manager,2012-12-17T00:00:00.000Z,1
+HACSTR,Jay Sivapalan,Portfolio Manager,2008-07-31T00:00:00.000Z,1
+TDAE,Jay Sivapalan,Portfolio Manager,2020-01-22T00:00:00.000Z,1
+201,Nick Harper,Portfolio Manager,2024-06-07T00:00:00.000Z,2
+TSCIUS,Indriatti van Hien,Deputy Fund Manager,2016-05-31T00:00:00.000Z,2
+JHAEME,Daniel J. Graña,Portfolio Manager,2023-08-09T00:00:00.000Z,1
+DPTUCV,James de Bunsen,Portfolio Manager,2023-07-07T00:00:00.000Z,2
+HHUSSE,Hamish Chamberlayne,Portfolio Manager,2021-08-03T00:00:00.000Z,1
+863,Tim Winstone,Portfolio Manager,2024-05-20T00:00:00.000Z,2
+BIF2,Andy Acker,Portfolio Manager,2024-08-01T00:00:00.000Z,1
+FMPE27,Carl Jones,Portfolio Manager,2023-11-02T00:00:00.000Z,5
+11,Michael Keough,Portfolio Manager,2019-12-03T00:00:00.000Z,2
+GUSOGF,Brian Recht,Portfolio Manager,2022-03-01T00:00:00.000Z,3
+JRE100,Daniel Greenberger,Portfolio Manager,2021-06-22T00:00:00.000Z,2
+IIPUCV,Pete Webster,Portfolio Manager,2023-07-07T00:00:00.000Z,3
+JBBB10,Jessica Shill,Portfolio Manager,2022-01-11T00:00:00.000Z,3
+148,Dylan Bourke,Portfolio Manager,2021-06-15T00:00:00.000Z,3
+147,John Lloyd,Portfolio Manager,2014-02-28T00:00:00.000Z,3
+82JSF,Brian Recht,Portfolio Manager,2022-03-01T00:00:00.000Z,3
+ALPF,Jay Sivapalan,Portfolio Manager,2020-12-01T00:00:00.000Z,1
+THII,David Smith,Portfolio Manager,2014-01-02T00:00:00.000Z,1
+89,Daniel Lyons,Portfolio Manager,2023-01-31T00:00:00.000Z,2
+74,Denny Fish,Portfolio Manager,2016-01-12T00:00:00.000Z,1
+83,John Lloyd,Portfolio Manager,2024-06-01T00:00:00.000Z,3
+848JSF,John Kerschner,Portfolio Manager,2020-09-30T00:00:00.000Z,2
+HHJZJS,Yunyoung Lee,Portfolio Manager,2005-05-01T00:00:00.000Z,1
+TSCIUS,Neil Hermon,Portfolio Manager,2002-11-01T00:00:00.000Z,1
+62,Matt Peron,Portfolio Manager,2020-04-13T00:00:00.000Z,1
+GCNOPI,Victoria Mio,Portfolio Manager,2024-04-01T00:00:00.000Z,1
+96JSF,Guy Barnard,Portfolio Manager,2017-06-05T00:00:00.000Z,1
+GEUOEI,John Bennett,Portfolio Manager,2010-01-14T00:00:00.000Z,3
+202,Ashwin Alankar,Portfolio Manager,2014-09-01T00:00:00.000Z,1
+113,Aaron Schaechterle,Portfolio Manager,2023-09-01T00:00:00.000Z,3
+71,Daniel Lyons,Portfolio Manager,2023-01-31T00:00:00.000Z,2
+68,Nick Schommer,Portfolio Manager,2016-01-12T00:00:00.000Z,2
+GTEOTI,Alison Porter,Portfolio Manager,2018-03-29T00:00:00.000Z,2
+GEUOEI,Marc Schartz,Portfolio Manager,2024-02-01T00:00:00.000Z,2
+172,Craig Kempler,Portfolio Manager,2024-07-23T00:00:00.000Z,2
+96JSF,Tim Gibson,Portfolio Manager,2017-12-15T00:00:00.000Z,2
+EURIEI,Jamie Ross,Portfolio Manager,2018-10-05T00:00:00.000Z,1
+63,Greg Wilensky,Portfolio Manager,2020-02-01T00:00:00.000Z,2
+JHUSSE,Hamish Chamberlayne,Portfolio Manager,2022-09-20T00:00:00.000Z,1
+GSMSUS,Rory Stokes,Portfolio Manager,2015-08-01T00:00:00.000Z,2
+TABEUS,Tabula Investment Management Limited,Portfolio Manager,2023-09-29T00:00:00.000Z,1
+HEUZEI,Nick Sheridan,Portfolio Manager,2011-11-04T00:00:00.000Z,1
+155,Benjamin Wang,Portfolio Manager,2016-04-07T00:00:00.000Z,1
+JHAGSE,Aaron Scully,Portfolio Manager,2021-09-01T00:00:00.000Z,2
+SMD100,Benjamin Wang,Portfolio Manager,2016-02-23T00:00:00.000Z,1
+TBGHYU,Tabula Investment Management Limited,Portfolio Manager,2024-06-17T00:00:00.000Z,1
+JBBB10,John Kerschner,Portfolio Manager,2022-01-11T00:00:00.000Z,1
+UGEI,Job Curtis,Portfolio Manager,2006-11-30T00:00:00.000Z,3
+GPUK,Greg Kuhl,Portfolio Manager,2023-01-11T00:00:00.000Z,3
+GSLOEI,Tom O'Hara,Portfolio Manager,2020-01-31T00:00:00.000Z,1
+APGR,Ben Wallace,Portfolio Manager,2017-04-03T00:00:00.000Z,1
+JHUGSE,Hamish Chamberlayne,Portfolio Manager,2022-01-26T00:00:00.000Z,1
+KAETPOF,Daniel Siluk,Portfolio Manager,2024-02-01T00:00:00.000Z,1
+14,Christopher O'Malley,Portfolio Manager,2024-01-26T00:00:00.000Z,2
+JHDT,Rob Shimell,Portfolio Manager,2023-09-30T00:00:00.000Z,2
+STRI,Laura Foll,Portfolio Manager,2018-09-19T00:00:00.000Z,2
+77,Julian McManus,Portfolio Manager,2018-01-01T00:00:00.000Z,1
+GUKSAF,Ben Wallace,Portfolio Manager,2010-03-31T00:00:00.000Z,1
+GPESEI,Tom O'Hara,Portfolio Manager,2020-01-31T00:00:00.000Z,1
+83,Greg Wilensky,Portfolio Manager,2020-02-01T00:00:00.000Z,1
+848,John Kerschner,Portfolio Manager,2019-12-04T00:00:00.000Z,2
+TEGIPE,Ollie Beckett,Portfolio Manager,2011-07-01T00:00:00.000Z,1
+863,Carl Jones,Assistant Portfolio Manager,2024-05-20T00:00:00.000Z,5
+85,Michael Keough,Portfolio Manager,2019-12-03T00:00:00.000Z,2
+JHAGSE,Hamish Chamberlayne,Portfolio Manager,2021-09-01T00:00:00.000Z,1
+AEBIFU,Marc Schartz,Portfolio Manager,2024-02-01T00:00:00.000Z,2
+LUTR,Steve Cain,Portfolio Manager,2014-09-25T00:00:00.000Z,2
+HESZPE,Ollie Beckett,Portfolio Manager,2005-04-01T00:00:00.000Z,1
+68,Doug Rao,Portfolio Manager,2013-06-03T00:00:00.000Z,1
+DBGREF,Guy Barnard,Portfolio Manager,2017-06-05T00:00:00.000Z,1
+HHFSBF,Jenna Barnard,Portfolio Manager,2017-07-26T00:00:00.000Z,1
+NOAMIT,Jeremiah Buckley,Portfolio Manager,2024-07-31T00:00:00.000Z,1
+ALPF,Taf Mugwagwa,Portfolio Manager,2020-12-01T00:00:00.000Z,3
+AUT100,Matt Peron,Portfolio Manager,2020-04-13T00:00:00.000Z,1
+AUT100,John Jordan,Portfolio Manager,2024-01-26T00:00:00.000Z,3
+JAAA10,Jessica Shill,Portfolio Manager,2023-01-31T00:00:00.000Z,3
+100,Craig Kempler,Portfolio Manager,2017-10-03T00:00:00.000Z,2
+TEGIPE,Julia Scheufler,Fund Manager,2024-01-31T00:00:00.000Z,3
+GCOSPE,Tom Lemaigre,Portfolio Manager,2022-02-28T00:00:00.000Z,2
+HFEI,Sat Duhra,Portfolio Manager,2019-06-24T00:00:00.000Z,1
+IIPUCV,James de Bunsen,Portfolio Manager,2023-07-07T00:00:00.000Z,2
+154,Benjamin Wang,Portfolio Manager,2016-04-07T00:00:00.000Z,1
+91JSF,Justin Tugman,Portfolio Manager,2021-09-30T00:00:00.000Z,2
+HGMSNZ,David Elms,Portfolio Manager,2024-04-11T00:00:00.000Z,1
+GGFSGI,Christopher O'Malley,Portfolio Manager,2024-01-26T00:00:00.000Z,2
+HSOEPI,Diversified Alternatives Team,Portfolio Manager,2005-12-01T00:00:00.000Z,1
+UEFM,Robert Schramm-Fuchs,Portfolio Manager,2019-03-19T00:00:00.000Z,1
+63,Michael Keough,Portfolio Manager,2019-12-03T00:00:00.000Z,3
+SXUS10,Aaron Scully,Portfolio Manager,2021-09-08T00:00:00.000Z,2
+JHDT,Mark Richardson,Portfolio Manager,2023-06-06T00:00:00.000Z,1
+119,Ashwin Alankar,Portfolio Manager,2022-06-11T00:00:00.000Z,1
+848JSF,John Lloyd,Portfolio Manager,2020-09-30T00:00:00.000Z,3
+60,Matt Peron,Portfolio Manager,2020-04-13T00:00:00.000Z,1
+ASCR,Jay Sivapalan,Portfolio Manager,2023-02-07T00:00:00.000Z,1
+FIUUUF,Nicholas Ware,Portfolio Manager,2024-07-01T00:00:00.000Z,3
+14,Julian McManus,Portfolio Manager,2018-01-01T00:00:00.000Z,1
+USAD,Faizan Baig,Portfolio Manager,2020-10-28T00:00:00.000Z,2
+12,Joshua Cummings,Portfolio Manager,2024-01-26T00:00:00.000Z,2
+HAINFT,Jay Sivapalan,Portfolio Manager,2024-04-01T00:00:00.000Z,1
+171,Jeremiah Buckley,Portfolio Manager,2022-12-20T00:00:00.000Z,1
+HAPZPE,Robert Schramm-Fuchs,Portfolio Manager,2018-04-30T00:00:00.000Z,1
+GTEOTI,Graeme Clark,Portfolio Manager,2018-03-29T00:00:00.000Z,1
+PCGOPI,Matthew Culley,Portfolio Manager,2022-03-01T00:00:00.000Z,2
+847,Michael Keough,Portfolio Manager,2019-11-18T00:00:00.000Z,3
+102,Kevin Preloger,Portfolio Manager,2013-04-01T00:00:00.000Z,1
+62,Joshua Cummings,Portfolio Manager,2024-01-26T00:00:00.000Z,2
+CAST,Natasha Sibley,Portfolio Manager,2017-04-01T00:00:00.000Z,2
+JHSI10,Nick Childs,Portfolio Manager,2023-11-08T00:00:00.000Z,2
+JHAFSL,David Huang,Portfolio Manager,2023-06-19T00:00:00.000Z,3
+DPTUCV,Tihana Ibrahimpasic,Portfolio Manager,2021-01-01T00:00:00.000Z,1
+JHNET1,Tal Lomnitzer,Portfolio Manager,2022-03-09T00:00:00.000Z,1
+HGNREF,Darko Kuzmanovic,Portfolio Manager,2019-10-31T00:00:00.000Z,2
+LUTR,David Elms,Portfolio Manager,2014-09-25T00:00:00.000Z,1
+HHFM,David Elms,Portfolio Manager,2020-06-03T00:00:00.000Z,1
+BIF2,Daniel Lyons,Portfolio Manager,2024-08-01T00:00:00.000Z,2
+HGNREF,Daniel Sullivan,Portfolio Manager,2019-02-25T00:00:00.000Z,1
+77,Christopher O'Malley,Portfolio Manager,2024-01-26T00:00:00.000Z,2
+HHFG,Jenna Barnard,Portfolio Manager,2022-11-01T00:00:00.000Z,3
+HUARFI,Daniel Siluk,Portfolio Manager,2019-03-11T00:00:00.000Z,1
+806,Brad Smith,Portfolio Manager,2021-01-12T00:00:00.000Z,3
+84,Tom Ross,Portfolio Manager,2022-10-31T00:00:00.000Z,1
+HDGUKF,Oliver Blackbourn,Portfolio Manager,2017-12-04T00:00:00.000Z,1
+FMPU27,Tim Winstone,Portfolio Manager,2023-07-12T00:00:00.000Z,4
+87,Jonathan Coleman,Portfolio Manager,2013-05-13T00:00:00.000Z,1
+BITI,Jamie Ross,Deputy Fund Manager,2024-06-26T00:00:00.000Z,2
+HHFEMD,Jacob Nielsen,Portfolio Manager,2022-12-19T00:00:00.000Z,2
+HGEOMM,Diversified Alternatives Team,Portfolio Manager,2014-10-09T00:00:00.000Z,1
+HHFSBF,Nicholas Ware,Portfolio Manager,2024-07-01T00:00:00.000Z,4
+HPAZPI,Matthew Culley,Portfolio Manager,2022-03-01T00:00:00.000Z,2
+82,Doug Rao,Portfolio Manager,2017-04-28T00:00:00.000Z,1
+ESCOES,Ollie Beckett,Portfolio Manager,2012-12-10T00:00:00.000Z,2
+82,Nick Schommer,Portfolio Manager,2017-04-28T00:00:00.000Z,2
+NPOCGK,Hamish Chamberlayne,Portfolio Manager,2013-12-31T00:00:00.000Z,1
+HHFG,Helen Anthony,Portfolio Manager,2022-11-01T00:00:00.000Z,1
+JEMB10,Jacob Nielsen,Portfolio Manager,2024-08-13T00:00:00.000Z,2
+HC3O,James de Bunsen,Portfolio Manager,2023-07-07T00:00:00.000Z,2
+JEMB10,Bent Lystbaek,Portfolio Manager,2024-08-13T00:00:00.000Z,1
+HIUNPE,Diversified Alternatives Team,Portfolio Manager,2013-01-25T00:00:00.000Z,1
+82,Brian Recht,Portfolio Manager,2022-03-01T00:00:00.000Z,3
+JEMB10,Thomas Haugaard,Portfolio Manager,2024-08-13T00:00:00.000Z,3
+ACTOUE,James de Bunsen,Portfolio Manager,2023-07-07T00:00:00.000Z,2
+91,Justin Tugman,Portfolio Manager,2021-09-30T00:00:00.000Z,2
+HC6O,Tihana Ibrahimpasic,Portfolio Manager,2021-01-01T00:00:00.000Z,1
+TABEHY,Tabula Investment Management Limited,Portfolio Manager,2022-01-26T00:00:00.000Z,1
+87,Scott Stutzman,Portfolio Manager,2016-07-01T00:00:00.000Z,2
+HHSFTF,Alison Porter,Portfolio Manager,2021-08-03T00:00:00.000Z,2
+HDGUKF,Nick Harper,Portfolio Manager,2017-12-04T00:00:00.000Z,2
+FMPU27,Carl Jones,Portfolio Manager,2023-07-12T00:00:00.000Z,5
+806,James Briggs,Portfolio Manager,2018-09-30T00:00:00.000Z,1
+HHFEMD,Bent Lystbaek,Portfolio Manager,2022-12-19T00:00:00.000Z,1
+HISDBF,Ian Bettney,Portfolio Manager,2019-11-29T00:00:00.000Z,3
+JHABSF,Ian Bettney,Portfolio Manager,2020-09-15T00:00:00.000Z,2
+HHFG,John Pattullo,Portfolio Manager,2022-11-01T00:00:00.000Z,2
+HUARFI,Addison Maier,Portfolio Manager,2024-03-01T00:00:00.000Z,2
+HAPZPP,Xin Yan Low,Portfolio Manager,2019-01-31T00:00:00.000Z,2
+BITI,Alex Crooke,Portfolio Manager,2003-07-01T00:00:00.000Z,1
+HIOCBF,Tim Winstone,Portfolio Manager,2022-04-30T00:00:00.000Z,2
+ACTOUE,Tihana Ibrahimpasic,Portfolio Manager,2021-01-01T00:00:00.000Z,1
+ESCOES,Julia Scheufler,Portfolio Manager,2024-01-31T00:00:00.000Z,3
+HPAZPI,Daniel J. Graña,Portfolio Manager,2022-03-01T00:00:00.000Z,1
+HC4O,James de Bunsen,Portfolio Manager,2023-07-07T00:00:00.000Z,2
+HHSFTF,Richard Clode,Portfolio Manager,2021-08-03T00:00:00.000Z,3
+HHFSBF,Jenna Barnard,Portfolio Manager,2017-07-26T00:00:00.000Z,2
+HISDBF,Colin Fleury,Portfolio Manager,2019-11-29T00:00:00.000Z,1
+NPOCIK,Andrew Jones,Portfolio Manager,2012-01-01T00:00:00.000Z,1
+HC3O,Tihana Ibrahimpasic,Portfolio Manager,2021-01-01T00:00:00.000Z,1
+HAPZPP,Tim Gibson,Portfolio Manager,2011-03-01T00:00:00.000Z,1
+JEMB10,Sorin Pirau,Portfolio Manager,2024-08-13T00:00:00.000Z,4
+NPOCIK,David Smith,Deputy Fund Manager,2023-11-27T00:00:00.000Z,2
+HNWZGI,Tal Lomnitzer,Portfolio Manager,2019-11-01T00:00:00.000Z,1
+HC6O,James de Bunsen,Portfolio Manager,2023-07-07T00:00:00.000Z,2
+HGLZTI,Alison Porter,Portfolio Manager,2017-08-01T00:00:00.000Z,2
+91,Kevin Preloger,Portfolio Manager,2021-09-30T00:00:00.000Z,1
+FMPU27,James Briggs,Portfolio Manager,2023-07-12T00:00:00.000Z,2
+HHSFTF,Graeme Clark,Portfolio Manager,2021-08-03T00:00:00.000Z,1
+HHFEHY,Tom Ross,Portfolio Manager,2015-08-01T00:00:00.000Z,1
+HC4O,Pete Webster,Portfolio Manager,2023-07-07T00:00:00.000Z,3
+UKSOUS,Neil Hermon,Portfolio Manager,2002-10-31T00:00:00.000Z,1
+JHABSF,Colin Fleury,Portfolio Manager,2020-09-15T00:00:00.000Z,1
+HHFEMD,Thomas Haugaard,Portfolio Manager,2022-12-19T00:00:00.000Z,3
+FMPU27,Brad Smith,Portfolio Manager,2023-07-12T00:00:00.000Z,1
+HGLZTI,Richard Clode,Portfolio Manager,2017-08-01T00:00:00.000Z,3
+17,Vincent Ahn,Portfolio Manager,2022-12-01T00:00:00.000Z,2
+806,Tim Winstone,Portfolio Manager,2021-09-01T00:00:00.000Z,4
+HHFEHY,Richard Taylor,Assistant Portfolio Manager,2024-06-01T00:00:00.000Z,3
+GBE,Greg Kuhl,Portfolio Manager,2020-08-01T00:00:00.000Z,3
+87,Aaron Schaechterle,Portfolio Manager,2023-09-01T00:00:00.000Z,3
+GEOOMI,Daniel J. Graña,Portfolio Manager,2019-10-01T00:00:00.000Z,1
+FMPU27,Michael Keough,Portfolio Manager,2023-07-12T00:00:00.000Z,3
+HHJZJI,Junichi Inoue,Portfolio Manager,2019-03-29T00:00:00.000Z,1
+HUKAOE,David Smith,Portfolio Manager,2011-01-01T00:00:00.000Z,1
+GBE,Tim Gibson,Portfolio Manager,2014-07-01T00:00:00.000Z,2
+806,Michael Keough,Portfolio Manager,2018-09-30T00:00:00.000Z,2
+HGLZTI,Graeme Clark,Portfolio Manager,2017-08-01T00:00:00.000Z,1
+ACTOUE,Pete Webster,Portfolio Manager,2023-07-07T00:00:00.000Z,3
+HHFEHY,Tim Winstone,Portfolio Manager,2019-03-06T00:00:00.000Z,2
+HHFSBF,Oliver Bardot,Portfolio Manager,2023-01-01T00:00:00.000Z,3
+ESCOES,Rory Stokes,Portfolio Manager,2015-07-31T00:00:00.000Z,1
+84,Brent Olson,Portfolio Manager,2019-06-28T00:00:00.000Z,2
+GBE,Guy Barnard,Portfolio Manager,2008-08-01T00:00:00.000Z,1
+HISDBF,Denis Struc,Portfolio Manager,2019-11-29T00:00:00.000Z,2
+HC6O,Pete Webster,Portfolio Manager,2023-07-07T00:00:00.000Z,3
+NPOCGK,Aaron Scully,Portfolio Manager,2019-06-28T00:00:00.000Z,2
+HIOCBF,James Briggs,Portfolio Manager,2019-03-06T00:00:00.000Z,1
+HHFEMD,Sorin Pirau,Portfolio Manager,2022-12-19T00:00:00.000Z,4
+HC3O,Pete Webster,Portfolio Manager,2023-07-07T00:00:00.000Z,3
+HC4O,Tihana Ibrahimpasic,Portfolio Manager,2021-01-01T00:00:00.000Z,1
+JHABSF,Denis Struc,Portfolio Manager,2020-09-15T00:00:00.000Z,3
+HHFSBF,John Pattullo,Portfolio Manager,2017-07-26T00:00:00.000Z,1
+GEOOMI,Matthew Culley,Portfolio Manager,2022-03-01T00:00:00.000Z,2
+GCAOPE,Stephen Payne,Portfolio Manager,2016-08-01T00:00:00.000Z,1
+HIUPPE,David Smith,Portfolio Manager,2011-01-01T00:00:00.000Z,1
+DARUUE,Tihana Ibrahimpasic,Portfolio Manager,2021-01-01T00:00:00.000Z,1
+HHFECB,Tom Ross,Portfolio Manager,2015-08-01T00:00:00.000Z,2
+GABRCV,James de Bunsen,Portfolio Manager,2013-01-01T00:00:00.000Z,1
+SBUUUF,Tim Winstone,Portfolio Manager,2022-04-30T00:00:00.000Z,2
+SBUUUF,James Briggs,Portfolio Manager,2019-03-08T00:00:00.000Z,1
+DARUUE,James de Bunsen,Portfolio Manager,2023-07-07T00:00:00.000Z,2
+TABGFA,Tabula Investment Management Limited,Portfolio Manager,2023-06-21T00:00:00.000Z,1
+GUOABS,Ben Wallace,Portfolio Manager,2009-04-14T00:00:00.000Z,1
+HHFECB,Tim Winstone,Portfolio Manager,2017-10-03T12:00:58.650Z,1
+DARUUE,Pete Webster,Portfolio Manager,2023-07-07T00:00:00.000Z,3
+HHFEMI,Matthew Culley,Portfolio Manager,2023-05-10T00:00:00.000Z,2
+TABPAB,Tabula Investment Management Limited,Portfolio Manager,2021-01-08T00:00:00.000Z,1
+JHBIF,Andy Acker,Portfolio Manager,2019-12-23T00:00:00.000Z,1
+HHFEMI,Daniel J. Graña,Portfolio Manager,2023-05-10T00:00:00.000Z,1
+GCAOPE,James Briggs,Portfolio Manager,2022-04-30T00:00:00.000Z,2
+JHBIF,Agustin Mohedas,Portfolio Manager,2023-01-31T00:00:00.000Z,3
+JHBIF,Daniel Lyons,Portfolio Manager,2019-12-23T00:00:00.000Z,2
+GABRCV,Pete Webster,Portfolio Manager,2017-06-30T00:00:00.000Z,2
+GUOABS,Luke Newman,Portfolio Manager,2009-04-14T00:00:00.000Z,2
+TUUU,Julian McManus,Portfolio Manager,2023-02-01T00:00:00.000Z,1
+ELOANS,David Huang,Portfolio Manager,2023-04-24T00:00:00.000Z,2
+GSCUGQ,Pete Webster,Portfolio Manager,2023-07-07T00:00:00.000Z,3
+TABELC,Tabula Investment Management Limited,Portfolio Manager,2021-12-16T00:00:00.000Z,1
+GSCUGQ,Tihana Ibrahimpasic,Portfolio Manager,2021-01-01T00:00:00.000Z,1
+TABAHY,Haitong International Asset Management (HK) Limited,Portfolio Manager,2021-09-02T00:00:00.000Z,1
+TABAHY,Tabula Investment Management Limited,Portfolio Manager,2021-09-02T00:00:00.000Z,2
+HDIZAE,Sat Duhra,Portfolio Manager,2013-11-18T00:00:00.000Z,2
+EHYOFQ,John Pattullo,Portfolio Manager,1999-10-01T00:00:00.000Z,2
+NPUTET,Diversified Alternatives Team,Portfolio Manager,2013-01-25T00:00:00.000Z,1
+GSCUGQ,James de Bunsen,Portfolio Manager,2023-07-07T00:00:00.000Z,2
+EHYOFQ,Jenna Barnard,Portfolio Manager,2006-01-01T00:00:00.000Z,1
+TUUU,Christopher O'Malley,Portfolio Manager,2024-01-26T00:00:00.000Z,2
+EGFOEI,Marc Schartz,Portfolio Manager,2017-12-01T00:00:00.000Z,1
+MACQSL,Tim Elliot,Portfolio Manager,2023-04-24T00:00:00.000Z,2
+ELOANS,Tim Elliot,Portfolio Manager,2021-02-01T00:00:00.000Z,1
+MACQSL,John Lloyd,Portfolio Manager,2023-04-24T00:00:00.000Z,3
+EHYOFQ,Nicholas Ware,Portfolio Manager,2024-07-01T00:00:00.000Z,3
+MACQSL,Colin Fleury,Portfolio Manager,2014-10-09T00:00:00.000Z,1
+16,Vincent Ahn,Portfolio Manager,2022-12-01T00:00:00.000Z,2
+PGUUPI,Sat Duhra,Portfolio Manager,2013-11-18T00:00:00.000Z,1
+JCGOJI,Junichi Inoue,Portfolio Manager,2019-03-29T00:00:00.000Z,1
+GENIEI,Jamie Ross,Portfolio Manager,2024-07-04T00:00:00.000Z,2
+DIVALT,Pete Webster,Portfolio Manager,2017-06-30T00:00:00.000Z,2
+GENIEI,Tom O'Hara,Portfolio Manager,2020-01-31T00:00:00.000Z,1
+DIVALT,James de Bunsen,Portfolio Manager,2014-09-01T00:00:00.000Z,1
+818,Addison Maier,Portfolio Manager,2024-03-01T00:00:00.000Z,2
+NOAMIT,Francis (Fran) Radano,Portfolio Manager,2024-07-31T00:00:00.000Z,2
+818,Daniel Siluk,Portfolio Manager,2016-05-16T00:00:00.000Z,1
+TABGCC,Tabula Investment Management Limited,Portfolio Manager,2023-01-06T00:00:00.000Z,1
+HAINFT,Jay Sivapalan,Portfolio Manager,2024-04-01T00:00:00.000Z,2
+TBGHYE,Tabula Investment Management Limited,Portfolio Manager,2023-12-20T00:00:00.000Z,1
+HAINFT,Shan Kwee,Portfolio Manager,2018-12-11T00:00:00.000Z,1
+HAINFT,Nicholas Ware,Portfolio Manager,2024-07-01T00:00:00.000Z,3

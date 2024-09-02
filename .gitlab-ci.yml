@@ -7,7 +7,7 @@ deploy:
   script: deploy
   variables:
     SERVER: gramener.com
-    URL: datacomparison
+    URL: financedatacomparison
     VERSION: static
     # SETUP: npm install --production
     CORS: enabled

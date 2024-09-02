@@ -1,7 +1,10 @@
 import os
 import csv
 import argparse
+import logging
 
+# Set up logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def preprocess_file(file_path):
     # Preprocess the file to remove null characters and replace them with empty strings
@@ -45,12 +48,12 @@ def convert_files(folder_path):
                 # Remove the original file and the temporary preprocessed file after conversion
                 os.remove(file_path)
                 os.remove(preprocessed_file_path)
-                print(f"Converted and removed: {file_name}")
+                logging.info(f"Converted and removed: {file_name}")
 
             except Exception as e:
-                print(f"Failed to process {file_name}: {e}")
+                logging.error(f"Failed to process {file_name}: {e}")
 
-    print("Conversion complete.")
+    logging.info("Conversion complete.")
 
 
 def main():
@@ -66,7 +69,7 @@ def main():
     folder_path = args.folder_path
 
     if not os.path.isdir(folder_path):
-        print(f"The folder path '{folder_path}' does not exist.")
+        logging.error(f"The folder path '{folder_path}' does not exist.")
         return
 
     convert_files(folder_path)

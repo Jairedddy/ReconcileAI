@@ -275,6 +275,13 @@ const updateReportTable = (reportData, section) => {
     updateTableView(reportData);
   };
 
+  // Function to calculate total number of passed and failed comparisons
+  const calculateComparisonStats = (passCount = false) => {
+    return passCount
+      ? reportData.filter((data) => data.matched === true).length
+      : reportData.filter((data) => !data.matched).length;
+  };
+
   // Function to update table view
   const updateTableView = (curReportData) => {
     // Paginate data for current page
@@ -372,6 +379,10 @@ const updateReportTable = (reportData, section) => {
             <i class="bi bi-download"></i>
           </button>
         </div>
+      </div>
+      <div>
+        <h4>Passed: <span>${calculateComparisonStats(true)}</span></h4>
+        <h4>Failed: <span>${calculateComparisonStats()}</span></h4>
       </div>
       <table class="table table-striped table-hover rounded-3">
         <thead class="thead-light bg-light">
@@ -476,7 +487,9 @@ const resolveSimilarRows = (currentData, category, curIntValue, curExtValue) => 
   const updatedData = currentData.map((data) => {
     const isResolved =
       data.internalValue === curIntValue && data.externalValue === curExtValue && data.fieldName === category;
-    return isResolved ? (data.matched = "resolved") : data;
+
+    // If resolved, return the updated object with matched set to "resolved", otherwise return the original object
+    return isResolved ? { ...data, matched: "resolved" } : data;
   });
   updateReportTable(updatedData, document.querySelector("#report-section"));
 };

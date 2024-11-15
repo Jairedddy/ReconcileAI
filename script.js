@@ -77,9 +77,9 @@ const loader = html`<div class="d-flex justify-content-center">
   </div>
 </div>`;
 
-const formTemplate = html`<h2 class="text-center">Finance Data Comparison Tool</h2>
+const formTemplate = html`<h2 class="text-center">Data Reconcilation</h2>
   <p class="lead mt-3">
-    "This tool empowers users to seamlessly upload and manage large datasets in various structured and semi-structured formats from both internal and external sources. It ensures data integrity with real-time quality checks and configurable reconciliation processes, offering comprehensive summaries and flagging any issues related to critical data elements. With AI-driven issue resolution, the tool provides users with efficient solutions to data discrepancies. Additionally, it generates detailed reports, giving you insights into data quality and reconciliation outcomes, supporting your organization’s data governance and compliance needs."
+    "This tool empowers users to seamlessly upload and manage large datasets in various structured and semi-structured formats from both internal and external sources. It ensures data integrity with real-time quality checks and configurable reconciliation processes, offering comprehensive summaries and flagging any issues related to critical data elements. With AI-driven issue resolution, the tool provides users with efficient solutions to data discrepancies. Additionally, it generates detailed reports, giving you insights into data quality and reconciliation outcomes, supporting your organization's data governance and compliance needs."
   </p>
 
   <!-- Static Section for File Uploads and Input -->

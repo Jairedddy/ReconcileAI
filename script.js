@@ -275,7 +275,7 @@ const updateReportTable = (reportData, section) => {
     // Template for detailed table view
     const detailedTableTemplate = html`
       <div class="d-flex align-items-center justify-content-between">
-        <h3 class="lead">Report</h3>
+        <h3 class="lead">Recon Report</h3>
         <div>
           <button
             class=${`btn mb-3 ${isDetailedView ? "btn-success" : "btn-primary"}`}
@@ -342,16 +342,123 @@ const updateReportTable = (reportData, section) => {
             })}
           </tbody>
         </table>
-        <div class="resizer" id="tableResizer"></div> <!-- Resizer div -->
       </div>
     `;
 
-    // Render the detailed table template
-    render(detailedTableTemplate, section);
-    
-    // Add resizer functionality
-  };
+    // Template for summary table view with all details displayed at once
+    const summaryTableTemplate = html`
+      <div class="d-flex align-items-center justify-content-between">
+        <h3 class="lead">Summary Report</h3>
+        <div>
+          <button
+            class=${`btn mb-3 ${isDetailedView ? "btn-success" : "btn-primary"}`}
+            @click=${toggleView}
+            title="Toggle View"
+          >
+            ${isDetailedView ? "Recon Summary" : "Recon Report"}
+          </button>
+          <button class="btn btn-success mb-3" @click=${() => downloadCSV(curReportData)} title="Download CSV">
+            <i class="bi bi-download"></i>
+          </button>
+        </div>
+      </div>
+      <div>
+        <h4>Passed: <span>${calculateComparisonStats(true)}</span></h4>
+        <h4>Failed: <span>${calculateComparisonStats()}</span></h4>
+      </div>
+      <table class="table table-striped table-hover rounded-3">
+        <thead class="thead-light bg-light">
+          <tr>
+            <th class="text-nowrap">Category</th>
+            <th class="text-nowrap">Internal Value</th>
+            <th class="text-nowrap">External Value</th>
+            <th class="text-nowrap">Count</th>
+            <th class="text-nowrap">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${summaryMapping.flatMap((category) => {
+            const categoryRows = curReportData.filter(
+              (row) => row.fieldName === category && row.internalValue !== row.externalValue,
+            );
+            // Count occurrences of each issue within the category
+            const issueCounts = categoryRows.reduce((acc, row) => {
+              const issueKey = `${row.internalValue}-${row.externalValue}`;
+              acc[issueKey] = (acc[issueKey] || 0) + 1;
+              return acc;
+            }, {});
 
+            if (categoryRows.length === 0) {
+              return []; // No rows to display for this category
+            }
+
+            return [
+              html`
+                <tr>
+                  <td class="font-weight-bold">${category}</td>
+                  <td colspan="4"></td>
+                </tr>
+              `,
+              ...categoryRows.map(
+                (row) => html`
+                  <tr>
+                    <td></td>
+                    <td>${row.internalValue}</td>
+                    <td>${row.externalValue}</td>
+                    <td>${issueCounts[`${row.internalValue}-${row.externalValue}`]}</td>
+                    <td class="text-center">
+                      ${!row.matched
+                        ? html`<button
+                            type="button"
+                            @click=${() =>
+                              resolveSimilarRows(curReportData, category, row.internalValue, row.externalValue)}
+                            class="btn btn-primary btn-sm text-nowrap"
+                          >
+                            <i class="bi bi-check-circle"></i> Resolve All
+                          </button>`
+                        : html`<span class="text-muted">-</span>`}
+                    </td>
+                  </tr>
+                `,
+              ),
+            ];
+          })}
+        </tbody>
+      </table>
+    `;
+
+    // Pagination template
+    const paginationTemplate = html`
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+          <li class="page-item ${currentPage === 1 ? "disabled" : ""}">
+            <button class="page-link" @click=${() => changePage(currentPage - 1)}>
+              <i class="bi bi-chevron-left"></i> Previous
+            </button>
+          </li>
+          ${Array.from({ length: Math.ceil(curReportData.length / rowsPerPage) }, (_, index) => index + 1).map(
+            (page) => html`
+              <li class="page-item ${currentPage === page ? "active" : ""}">
+                <button class="page-link" @click=${() => changePage(page)}>${page}</button>
+              </li>
+            `,
+          )}
+          <li class="page-item ${currentPage === Math.ceil(curReportData.length / rowsPerPage) ? "disabled" : ""}">
+            <button class="page-link" @click=${() => changePage(currentPage + 1)}>
+              Next <i class="bi bi-chevron-right"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    `;
+
+    // Render the appropriate view
+    if (isDetailedView) {
+      render(html`${detailedTableTemplate} ${curReportData.length > rowsPerPage ? paginationTemplate : ""}`, section);
+    } else {
+      render(html`${summaryTableTemplate}`, section);
+    }
+  };    
   // Initialize the table view
   updateTableView(reportData);
 };

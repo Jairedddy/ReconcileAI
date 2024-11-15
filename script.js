@@ -415,6 +415,8 @@ const compareISIN = async () => {
 
   const isinInput = document.querySelector("#isinInput").value;
   const isinList = isinInput.split(",").map((isin) => isin.trim());
+  console.log(isinInput);
+  console.log(isinList);
 
   let internalData = {};
   let externalData = {};

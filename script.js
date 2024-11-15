@@ -77,7 +77,7 @@ const loader = html`<div class="d-flex justify-content-center">
   </div>
 </div>`;
 
-const formTemplate = html`<h2 class="text-center">Data Reconcilation</h2>
+const formTemplate = html`<h2 class="text-center">Data Reconcilation Tool</h2>
   <p class="lead mt-3">
     "This tool empowers users to seamlessly upload and manage large datasets in various structured and semi-structured formats from both internal and external sources. It ensures data integrity with real-time quality checks and configurable reconciliation processes, offering comprehensive summaries and flagging any issues related to critical data elements. With AI-driven issue resolution, the tool provides users with efficient solutions to data discrepancies. Additionally, it generates detailed reports, giving you insights into data quality and reconciliation outcomes, supporting your organization's data governance and compliance needs."
   </p>
@@ -99,31 +99,13 @@ const formTemplate = html`<h2 class="text-center">Data Reconcilation</h2>
     <!-- ISIN Input Field and Compare Button -->
     <div class="form-group mt-2">
       <label for="isinInput">Enter ISIN numbers (comma-separated):</label>
-      <input type="text" id="isinInput" class="form-control" placeholder="ISIN1, ISIN2, ISIN3" />
-      <button type="button" class="btn btn-success mt-2" id="compareButton">Compare Files</button>
+      <input type="text" id="isinInput" class="form-control" placeholder="AU0000044828, AU0000169229, GB0001920486, GB0001990497, IE0000OEM636" />
+      <button type="button" class="btn btn-success mt-2" id="compareButton">Reconcile</button>
     </div>
   </form>
 
   <!-- Dynamic Report Table -->
   <div id="report-section" class="mt-5"></div>`;
-
-// Function to check if both file inputs have files selected
-// const checkFilesUploaded = () => {
-//   const internalFile = document.getElementById("internalFile").files.length;
-//   const externalFile = document.getElementById("externalFile").files.length;
-//   const compareButton = document.getElementById("compareButton");
-
-//   // Enable the button if both inputs have files selected, otherwise disable it
-//   if (internalFile > 0 && externalFile > 0) {
-//     compareButton.disabled = false;
-//     compareButton.classList.remove("btn-secondary");
-//     compareButton.classList.add("btn-success");
-//   } else {
-//     compareButton.disabled = true;
-//     compareButton.classList.remove("btn-success");
-//     compareButton.classList.add("btn-secondary");
-//   }
-// };
 
 const initializeApp = async () => {
   try {
@@ -142,6 +124,8 @@ const initializeApp = async () => {
       );
     } else {
       render(formTemplate, $output);
+      // Set default ISIN values
+      document.getElementById("isinInput").value = "AU0000044828, AU0000169229, GB0001920486, GB0001990497, IE0000OEM636"; // Set default ISINs
       // checkFilesUploaded();
       setupEventListeners();
     }
@@ -298,180 +282,75 @@ const updateReportTable = (reportData, section) => {
             @click=${toggleView}
             title="Toggle View"
           >
-            ${isDetailedView ? "Summary" : "Report"}
+            ${isDetailedView ? "Recon Summary" : "Recon Report"}
           </button>
           <button class="btn btn-success mb-3" @click=${() => downloadCSV(curReportData)} title="Download CSV">
             <i class="bi bi-download"></i>
           </button>
         </div>
       </div>
-      <table class="table table-striped table-hover rounded-3">
-        <thead class="thead-light bg-light">
-          <tr>
-            <th class="text-nowrap">ISIN</th>
-            <th class="text-nowrap">Field Name</th>
-            <th class="text-nowrap">Internal Value</th>
-            <th class="text-nowrap">External Value</th>
-            <th class="text-nowrap">Status</th>
-            <th class="text-nowrap">AI Status</th>
-            <th class="text-nowrap">AI Reason</th>
-            <th class="text-nowrap">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${paginatedData.map((row) => {
-            if (row.matched !== "resolved") {
-              return html`
-                <tr id="row-${row.id}">
-                  <td title="${row.isin}">${truncate(row.isin)}</td>
-                  <td title="${row.fieldName}">${truncate(row.fieldName)}</td>
-                  <td title="${row.internalValue}">${truncate(row.internalValue)}</td>
-                  <td title="${row.externalValue}">${truncate(row.externalValue)}</td>
-                  <td class="text-center">
-                    ${row.matched
-                      ? html`<i class="bi bi-check-circle text-success" title="Matched"></i>`
-                      : html`<i class="bi bi-x-circle text-danger" title="Not Matched"></i>`}
-                  </td>
-                  <td class="text-center" title="${row.aiSuggestion?.reason}">
-                    ${row.aiSuggestion?.status === "-"
-                      ? html`<span class="text-muted">${row.aiSuggestion?.status}</span>`
-                      : row.aiSuggestion?.status
-                        ? html`<i class="bi bi-check-circle text-success" title="AI Suggestion Approved"></i>`
-                        : html`<i class="bi bi-x-circle text-danger" title="AI Suggestion Rejected"></i>`}
-                  </td>
-                  <td title="${row.aiSuggestion?.reason}" class="text-muted">${truncate(row.aiSuggestion?.reason)}</td>
-                  <td class="text-center">
-                    ${!row.matched
-                      ? html`<button
-                          type="button"
-                          class="btn btn-primary btn-sm text-nowrap"
-                          @click=${() => resolveRow(row.id, curReportData)}
-                        >
-                          <i class="bi bi-check-circle"></i> Resolve
-                        </button>`
-                      : html`<span class="text-muted">-</span>`}
-                  </td>
-                </tr>
-              `;
-            }
-          })}
-        </tbody>
-      </table>
-    `;
-
-    // Template for summary table view with all details displayed at once
-    const summaryTableTemplate = html`
-      <div class="d-flex align-items-center justify-content-between">
-        <h3 class="lead">Summary Report</h3>
-        <div>
-          <button
-            class=${`btn mb-3 ${isDetailedView ? "btn-success" : "btn-primary"}`}
-            @click=${toggleView}
-            title="Toggle View"
-          >
-            ${isDetailedView ? "Summary" : "Report"}
-          </button>
-          <button class="btn btn-success mb-3" @click=${() => downloadCSV(curReportData)} title="Download CSV">
-            <i class="bi bi-download"></i>
-          </button>
-        </div>
-      </div>
-      <div>
-        <h4>Passed: <span>${calculateComparisonStats(true)}</span></h4>
-        <h4>Failed: <span>${calculateComparisonStats()}</span></h4>
-      </div>
-      <table class="table table-striped table-hover rounded-3">
-        <thead class="thead-light bg-light">
-          <tr>
-            <th class="text-nowrap">Category</th>
-            <th class="text-nowrap">Internal Value</th>
-            <th class="text-nowrap">External Value</th>
-            <th class="text-nowrap">Count</th>
-            <th class="text-nowrap">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${summaryMapping.flatMap((category) => {
-            const categoryRows = curReportData.filter(
-              (row) => row.fieldName === category && row.internalValue !== row.externalValue,
-            );
-            // Count occurrences of each issue within the category
-            const issueCounts = categoryRows.reduce((acc, row) => {
-              const issueKey = `${row.internalValue}-${row.externalValue}`;
-              acc[issueKey] = (acc[issueKey] || 0) + 1;
-              return acc;
-            }, {});
-
-            if (categoryRows.length === 0) {
-              return []; // No rows to display for this category
-            }
-
-            return [
-              html`
-                <tr>
-                  <td class="font-weight-bold">${category}</td>
-                  <td colspan="4"></td>
-                </tr>
-              `,
-              ...categoryRows.map(
-                (row) => html`
-                  <tr>
-                    <td></td>
-                    <td>${row.internalValue}</td>
-                    <td>${row.externalValue}</td>
-                    <td>${issueCounts[`${row.internalValue}-${row.externalValue}`]}</td>
+      <div class="table-container" style="position: relative;">
+        <table class="table table-striped table-hover rounded-3" id="reportTable">
+          <thead class="thead-light bg-light">
+            <tr>
+              <th class="text-nowrap">ISIN</th>
+              <th class="text-nowrap">Field Name</th>
+              <th class="text-nowrap">Internal Value</th>
+              <th class="text-nowrap">External Value</th>
+              <th class="text-nowrap">Status</th>
+              <th class="text-nowrap">AI Status</th>
+              <th class="text-nowrap">AI Reason</th>
+              <th class="text-nowrap">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${paginatedData.map((row) => {
+              if (row.matched !== "resolved") {
+                return html`
+                  <tr id="row-${row.id}">
+                    <td title="${row.isin}">${truncate(row.isin)}</td>
+                    <td title="${row.fieldName}">${truncate(row.fieldName)}</td>
+                    <td title="${row.internalValue}">${truncate(row.internalValue)}</td>
+                    <td title="${row.externalValue}">${truncate(row.externalValue)}</td>
+                    <td class="text-center">
+                      ${row.matched
+                        ? html`<i class="bi bi-check-circle text-success" title="Matched"></i>`
+                        : html`<i class="bi bi-x-circle text-danger" title="Not Matched"></i>`}
+                    </td>
+                    <td class="text-center" title="${row.aiSuggestion?.reason}">
+                      ${row.aiSuggestion?.status === "-"
+                        ? html`<span class="text-muted">${row.aiSuggestion?.status}</span>`
+                        : row.aiSuggestion?.status
+                          ? html`<i class="bi bi-check-circle text-success" title="AI Suggestion Approved"></i>`
+                          : html`<i class="bi bi-x-circle text-danger" title="AI Suggestion Rejected"></i>`}
+                    </td>
+                    <td title="${row.aiSuggestion?.reason}" class="text-muted">${truncate(row.aiSuggestion?.reason)}</td>
                     <td class="text-center">
                       ${!row.matched
                         ? html`<button
                             type="button"
-                            @click=${() =>
-                              resolveSimilarRows(curReportData, category, row.internalValue, row.externalValue)}
                             class="btn btn-primary btn-sm text-nowrap"
+                            @click=${() => resolveRow(row.id, curReportData)}
                           >
-                            <i class="bi bi-check-circle"></i> Resolve All
+                            <i class="bi bi-check-circle"></i> Resolve
                           </button>`
                         : html`<span class="text-muted">-</span>`}
                     </td>
                   </tr>
-                `,
-              ),
-            ];
-          })}
-        </tbody>
-      </table>
+                `;
+              }
+            })}
+          </tbody>
+        </table>
+        <div class="resizer" id="tableResizer"></div> <!-- Resizer div -->
+      </div>
     `;
 
-    // Pagination template
-    const paginationTemplate = html`
-      <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-          <li class="page-item ${currentPage === 1 ? "disabled" : ""}">
-            <button class="page-link" @click=${() => changePage(currentPage - 1)}>
-              <i class="bi bi-chevron-left"></i> Previous
-            </button>
-          </li>
-          ${Array.from({ length: Math.ceil(curReportData.length / rowsPerPage) }, (_, index) => index + 1).map(
-            (page) => html`
-              <li class="page-item ${currentPage === page ? "active" : ""}">
-                <button class="page-link" @click=${() => changePage(page)}>${page}</button>
-              </li>
-            `,
-          )}
-          <li class="page-item ${currentPage === Math.ceil(curReportData.length / rowsPerPage) ? "disabled" : ""}">
-            <button class="page-link" @click=${() => changePage(currentPage + 1)}>
-              Next <i class="bi bi-chevron-right"></i>
-            </button>
-          </li>
-        </ul>
-      </nav>
-    `;
-
-    // Render the appropriate view
-    if (isDetailedView) {
-      render(html`${detailedTableTemplate} ${curReportData.length > rowsPerPage ? paginationTemplate : ""}`, section);
-    } else {
-      render(html`${summaryTableTemplate}`, section);
-    }
+    // Render the detailed table template
+    render(detailedTableTemplate, section);
+    
+    // Add resizer functionality
+    makeTableResizable();
   };
 
   // Initialize the table view
@@ -668,6 +547,7 @@ const initializeChat = () => {
   const sendMessageButton = document.getElementById("send-message");
   const userInput = document.getElementById("user-input");
   const chatMessages = document.getElementById("chat-messages");
+  const expandChatButton = document.getElementById("expandChat");
 
   // Function to update chat window theme
   const updateChatTheme = () => {
@@ -693,6 +573,16 @@ const initializeChat = () => {
   // Close chat window
   closeChatButton.addEventListener("click", () => {
     chatWindow.style.display = "none";
+  });
+
+  // Expand chat window
+  expandChatButton.addEventListener("click", () => {
+    chatWindow.classList.toggle("expanded");
+    if (chatWindow.classList.contains("expanded")) {
+      expandChatButton.textContent = "Collapse"; // Change button text to Collapse
+    } else {
+      expandChatButton.textContent = "Expand"; // Change button text to Expand
+    }
   });
 
   // Send message
@@ -784,3 +674,28 @@ initializeChat();
 
 // Initialize the app
 initializeApp();
+
+$(document).ready(function () {
+  // Make table headers resizable
+  $('th').each(function () {
+    const th = $(this);
+    const resizer = $('<div class="resizer"></div>');
+    th.append(resizer);
+
+    resizer.on('mousedown', function (e) {
+      e.preventDefault();
+      const startX = e.pageX;
+      const startWidth = th.width();
+
+      $(document).on('mousemove', function (e) {
+        const newWidth = startWidth + (e.pageX - startX);
+        th.width(newWidth);
+      });
+
+      $(document).on('mouseup', function () {
+        $(document).off('mousemove');
+        $(document).off('mouseup');
+      });
+    });
+  });
+});

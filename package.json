@@ -6,7 +6,7 @@
   "scripts": {
     "start": "python -m http.server 8080"
   },
-  "author": "aayush.thakur@gramener.com",
+  "author": "jaishuk.reddy@straive.com",
   "license": "ISC",
   "devDependencies": {
     "eslint-plugin-html": "^8.1.1"

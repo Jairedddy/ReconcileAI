@@ -8,7 +8,8 @@ deploy:
   variables:
     SERVER: gramener.com
     URL: financedatacomparison
-    VERSION: static
+    VERSION: py3v1
+    PORT: 8030
     # SETUP: npm install --production
     CORS: enabled
   environment:

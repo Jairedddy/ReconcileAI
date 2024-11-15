@@ -79,12 +79,7 @@ const loader = html`<div class="d-flex justify-content-center">
 
 const formTemplate = html`<h2 class="text-center">Finance Data Comparison Tool</h2>
   <p class="lead mt-3">
-    This application dashboard is designed for file upload and comparison, focusing on CSV data handling. Users can
-    upload internal and external CSV files, input ISIN numbers for comparison, and view the results directly on the
-    dashboard. The interface provides real-time status updates on file uploads, highlights matched and unmatched
-    entries, and offers options to resolve mismatches. The results and processing report are dynamically updated to
-    provide clear insights into the finance data comparison process. The dashboard uses a responsive layout with
-    Bootstrap for a polished and user-friendly experience.
+    "This tool empowers users to seamlessly upload and manage large datasets in various structured and semi-structured formats from both internal and external sources. It ensures data integrity with real-time quality checks and configurable reconciliation processes, offering comprehensive summaries and flagging any issues related to critical data elements. With AI-driven issue resolution, the tool provides users with efficient solutions to data discrepancies. Additionally, it generates detailed reports, giving you insights into data quality and reconciliation outcomes, supporting your organization’s data governance and compliance needs."
   </p>
 
   <!-- Static Section for File Uploads and Input -->
@@ -105,7 +100,7 @@ const formTemplate = html`<h2 class="text-center">Finance Data Comparison Tool</
     <div class="form-group mt-2">
       <label for="isinInput">Enter ISIN numbers (comma-separated):</label>
       <input type="text" id="isinInput" class="form-control" placeholder="ISIN1, ISIN2, ISIN3" />
-      <button type="button" class="btn btn-success mt-2" id="compareButton" disabled>Compare Files</button>
+      <button type="button" class="btn btn-success mt-2" id="compareButton">Compare Files</button>
     </div>
   </form>
 
@@ -113,29 +108,30 @@ const formTemplate = html`<h2 class="text-center">Finance Data Comparison Tool</
   <div id="report-section" class="mt-5"></div>`;
 
 // Function to check if both file inputs have files selected
-const checkFilesUploaded = () => {
-  const internalFile = document.getElementById("internalFile").files.length;
-  const externalFile = document.getElementById("externalFile").files.length;
-  const compareButton = document.getElementById("compareButton");
+// const checkFilesUploaded = () => {
+//   const internalFile = document.getElementById("internalFile").files.length;
+//   const externalFile = document.getElementById("externalFile").files.length;
+//   const compareButton = document.getElementById("compareButton");
 
-  // Enable the button if both inputs have files selected, otherwise disable it
-  if (internalFile > 0 && externalFile > 0) {
-    compareButton.disabled = false;
-    compareButton.classList.remove("btn-secondary");
-    compareButton.classList.add("btn-success");
-  } else {
-    compareButton.disabled = true;
-    compareButton.classList.remove("btn-success");
-    compareButton.classList.add("btn-secondary");
-  }
-};
+//   // Enable the button if both inputs have files selected, otherwise disable it
+//   if (internalFile > 0 && externalFile > 0) {
+//     compareButton.disabled = false;
+//     compareButton.classList.remove("btn-secondary");
+//     compareButton.classList.add("btn-success");
+//   } else {
+//     compareButton.disabled = true;
+//     compareButton.classList.remove("btn-success");
+//     compareButton.classList.add("btn-secondary");
+//   }
+// };
 
 const initializeApp = async () => {
   try {
     const response = await fetch("https://llmfoundry.straive.com/token", { credentials: "include" });
+    console.log(response);
     const { token } = await response.json();
     llmFoundryToken = token;
-
+    console.log(token)
     if (!llmFoundryToken) {
       const loginUrl = "https://llmfoundry.straive.com/login?" + new URLSearchParams({ next: location.href });
       render(
@@ -146,7 +142,7 @@ const initializeApp = async () => {
       );
     } else {
       render(formTemplate, $output);
-      checkFilesUploaded();
+      // checkFilesUploaded();
       setupEventListeners();
     }
   } catch (error) {
@@ -177,7 +173,7 @@ const getAISuggestion = async (internalValue, externalValue) => {
             Internal Value: ${internalValue}
             External Value: ${externalValue}
 
-            Provide a JSON response with 'status' (true if the values are the same as, false if different) and 'reason' (slick and short reason for the provided status).`,
+            Provide a JSON response with 'status' (true if the values are the same as, false if different) and 'reason' (slick and short reason for the provided status. The reason should not exceed 10-12 words.).`,
           },
         ],
       }),
@@ -247,8 +243,8 @@ const downloadCSV = (data) => {
 
 const setupEventListeners = () => {
   // Event listeners for file input changes
-  document.getElementById("internalFile").addEventListener("change", checkFilesUploaded);
-  document.getElementById("externalFile").addEventListener("change", checkFilesUploaded);
+  // document.getElementById("internalFile").addEventListener("change", checkFilesUploaded);
+  // document.getElementById("externalFile").addEventListener("change", checkFilesUploaded);
 
   document.querySelector("#compareButton").addEventListener("click", compareISIN);
   // Add event listener for the "Enter" key on the form
@@ -505,12 +501,39 @@ const resolveRow = (id, currentData) => {
   updateReportTable(updatedData, document.querySelector("#report-section"));
 };
 
+// Define default file paths for multiple internal and external files
+const defaultInternalFilePaths = [
+  './internal_files/JHI_Fund_Ref_Data.csv',
+  './internal_files/JHI_PortfolioManagers.csv',
+  './internal_files/JHI_Price_Aum.csv',
+  './internal_files/JHI_RatingsCharges.csv',
+]; // Update with actual paths
+
+const defaultExternalFilePaths = [
+  './external_files/Morningstar AMC.csv', 
+  './external_files/Morningstar Available for Sale.csv', 
+  './external_files/Morningstar Domicile, Fund Currency, Share Class Currency, Share Class Name, Fund Name.csv', 
+  './external_files/Morningstar Investment Objective.csv', 
+  './external_files/Morningstar Launch Date.csv', 
+  './external_files/Morningstar UCITS KIID Ongoing Charge and UCITS KIID Ongoing Charge As At Date.csv', 
+  './external_files/Morningstar Umbrella and Legal Structure.csv', 
+]; // Update with actual paths
+
+// Declare a global variable to hold the final report data
+let finalReportData = [];
+
 const compareISIN = async () => {
   const $reportSection = document.querySelector("#report-section");
   render(loader, $reportSection);
 
-  const internalFiles = document.querySelector("#internalFile").files;
-  const externalFiles = document.querySelector("#externalFile").files;
+  const internalFiles = document.querySelector("#internalFile").files.length > 0 
+    ? document.querySelector("#internalFile").files 
+    : await loadDefaultFiles(defaultInternalFilePaths); // Load default internal files if none uploaded
+
+  const externalFiles = document.querySelector("#externalFile").files.length > 0 
+    ? document.querySelector("#externalFile").files 
+    : await loadDefaultFiles(defaultExternalFilePaths); // Load default external files if none uploaded
+
   const isinInput = document.querySelector("#isinInput").value;
   const isinList = isinInput.split(",").map((isin) => isin.trim());
 
@@ -521,7 +544,9 @@ const compareISIN = async () => {
   const internalIsinKey = "ClassIdentifier"; // Replace this with the actual key name in internal data
   const externalIsinKey = "ISIN"; // Key name in external data
 
-  // Process internal files
+  console.log(internalFiles);
+  console.log(externalFiles);
+  // Function to process files
   const processInternalFiles = Array.from(internalFiles).map((file) => {
     return new Promise((resolve) => {
       const reader = new FileReader();
@@ -618,9 +643,144 @@ const compareISIN = async () => {
       }
     }
 
+    // Update the global variable with the report data
+    finalReportData = reportData; // Store the report data in the global variable
     updateReportTable(reportData, $reportSection);
   });
 };
+
+// Function to load default files
+const loadDefaultFiles = async (filePaths) => {
+  return Promise.all(filePaths.map((path) => {
+    return fetch(path)
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.blob(); // Convert response to Blob
+      })
+      .then(blob => new File([blob], path.split('/').pop())); // Create a File object from the Blob
+  }));
+};
+
+const initializeChat = () => {
+  const chatButton = document.getElementById("openChat");
+  const chatWindow = document.getElementById("chat-window");
+  const closeChatButton = document.getElementById("closeChat");
+  const sendMessageButton = document.getElementById("send-message");
+  const userInput = document.getElementById("user-input");
+  const chatMessages = document.getElementById("chat-messages");
+
+  // Function to update chat window theme
+  const updateChatTheme = () => {
+    const isDarkTheme = document.body.classList.contains('bg-dark'); // Check if the body has dark theme class
+    chatWindow.classList.toggle('dark', isDarkTheme);
+    const chatHeader = chatWindow.querySelector('.chat-header');
+    chatHeader.classList.toggle('dark', isDarkTheme);
+    const messages = chatWindow.querySelector('.chat-messages');
+    messages.classList.toggle('dark', isDarkTheme);
+  };
+
+  // Open chat window and minimize if already open
+  chatButton.addEventListener("click", () => {
+    if (chatWindow.style.display === "block") {
+      chatWindow.style.display = "none"; // Minimize if already open
+    } else {
+      chatWindow.style.display = "block"; // Open chat window
+      userInput.focus();
+      updateChatTheme(); // Update theme when chat window opens
+    }
+  });
+
+  // Close chat window
+  closeChatButton.addEventListener("click", () => {
+    chatWindow.style.display = "none";
+  });
+
+  // Send message
+  const sendMessage = async () => {
+    const message = userInput.value.trim();
+    if (message) {
+      appendMessage("You", message, "user-message"); // Append user message
+      userInput.value = "";
+      const response = await getChatbotResponse(message); // Call without passing reportData
+      appendMessage("Bot", response, "bot-message"); // Append bot message
+    }
+  };
+
+  sendMessageButton.addEventListener("click", sendMessage);
+
+  // Send message on Enter key press
+  userInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Prevent form submission
+      sendMessage();
+    }
+  });
+
+  // Append message to chat
+  const appendMessage = (sender, message, messageType) => {
+    const messageElement = document.createElement("div");
+    messageElement.className = `message ${messageType}`; // Add message type class
+    messageElement.textContent = message; // Only show the message text
+    chatMessages.appendChild(messageElement);
+    chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to the bottom
+  };
+
+  // Mock function to simulate chatbot response
+  const getChatbotResponse = async (message) => { // Removed reportData parameter
+    try {
+      const visibleRows = finalReportData.map(row => 
+        [row.isin, row.fieldName, row.internalValue, row.externalValue, row.matched ? "Active" : "Inactive"] // Use finalReportData
+      );
+      console.log(visibleRows);
+      const response = await dataChat(message, visibleRows);
+      return response;
+    } catch (error) {
+      return `Error: ${error.message}`;
+    }
+  };
+  async function dataChat(userMessage, visibleRows) {
+    const context = visibleRows.map(row => 
+      `ISIN: ${row[0]}, Field Name: ${row[1]}, Internal Value: ${row[2]}, External Value: ${row[3]}, Status: ${row[4]}`
+    ).join('\n');
+  
+    const prompt = `Context:\n${context}\n\nUser message: ${userMessage}`;
+    
+    const proxyUrl = "https://llmfoundry.straive.com/anthropic/v1/messages";
+    const jwtToken = llmFoundryToken;
+    const model = "claude-3-5-sonnet-20240620";
+  
+    const payload = {
+      model: model,
+      max_tokens: 1024,
+      messages: [{ role: "user", content: prompt }]
+    };
+  
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${jwtToken}`
+      },
+      body: JSON.stringify(payload)
+    };
+  
+    try {
+      const response = await fetch(proxyUrl, options);
+      const jsonResponse = await response.json();
+  
+      if (jsonResponse.content && jsonResponse.content.length > 0) {
+        return jsonResponse.content.map(item => item.text).join("\n");
+      } else {
+        return "Unexpected API response structure.";
+      }
+    } catch (error) {
+      return `Error making API request: ${error.message}`;
+    }
+  };  
+};
+
+// Call the initializeChat function to set up the chat
+initializeChat();
 
 // Initialize the app
 initializeApp();

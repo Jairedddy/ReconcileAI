@@ -13,4 +13,4 @@ deploy:
     CORS: enabled
   environment:
     name: production
-    url: https://gramener.com/financedatacomparison/
+    url: https://gramener.com/reconciledata/

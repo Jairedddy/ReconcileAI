@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-# Finance Data Comparison
+# Finance Data Reconcilation
 
 ## Overview
 

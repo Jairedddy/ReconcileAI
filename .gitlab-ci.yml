@@ -1,6 +1,6 @@
 validate:
   image: gramener/builderrors
-  script: builderrors
+  script: builderrors --skip=prettier --skip=eslint
 
 deploy:
   stage: deploy

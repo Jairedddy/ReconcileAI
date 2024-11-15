@@ -348,9 +348,6 @@ const updateReportTable = (reportData, section) => {
 
     // Render the detailed table template
     render(detailedTableTemplate, section);
-    
-    // Add resizer functionality
-    makeTableResizable();
   };
 
   // Initialize the table view

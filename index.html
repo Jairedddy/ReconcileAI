@@ -1,207 +1,34 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Reconciliation Tool</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <title>Dashboard - Data Reconciliation Tool</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
-      .container {
-        width: 60vw;
-      }
-      #output {
-        min-height: 70vh;
-      }
-      .chat-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 1000;
-      }
-      .chat-window {
-        position: fixed;
-        bottom: 80px;
-        right: 20px;
-        width: 300px;
-        border-radius: 5px;
-        background-color: #ffffff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        display: none;
-        transition: width 0.3s ease;
-        display: flex;
-        flex-direction: column;
-      }
-      .chat-window.expanded {
-        width: 30%;
-        height: 60%;
-        right: 0;
-      }
-      .chat-header {
-        display: flex;
-        justify-content: space-between;
-        padding: 10px;
-        background-color: #007bff;
-        color: white;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-      }
-      .chat-messages {
-        max-height: 200px;
-        overflow-y: auto;
-        padding: 10px;
-        color: #212529;
-        flex: 1;
-      }
-      .chat-input {
-        display: flex;
-        padding: 10px;
-        background-color: #f8f9fa;
-        border-top: 1px solid #ced4da;
-      }
-      .chat-input input {
-        flex: 1;
-        margin-right: 10px;
-        border: 1px solid #ced4da;
-        border-radius: 4px;
-      }
-      .message {
-        margin: 5px 0;
-        padding: 10px;
-        border-radius: 15px;
-        word-wrap: break-word;
-        display: block;
-        max-width: 80%;
-        box-sizing: border-box;
-      }
-      .user-message {
-        background-color: #007bff;
-        color: white;
-        align-self: flex-end;
-        margin-left: auto;
-        text-align: right;
-      }
-      .bot-message {
-        background-color: #e9ecef;
-        color: #212529;
-        align-self: flex-start;
-        margin-right: auto;
-        text-align: left;
-      }
-      /* Resizable table styles */
-      th {
-        position: relative;
-      }
-      th .resizer {
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 10px;
-        height: 100%;
-        cursor: col-resize;
-        z-index: 1;
-      }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .dashboard-container {
+            text-align: center;
+        }
+        .btn-reconcile {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+        }
     </style>
-  </head>
-
-  <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href=".">Data Reconciliation Tool</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div class="nav-item dropdown ms-auto" role="group" aria-label="Toggle dark mode" title="Toggle Dark Mode">
-            <button
-              class="dark-theme-toggle btn btn-outline-light dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              aria-label="Toggle theme (auto)"
-            >
-              <i class="bi bi-circle-half"></i> <span class="d-lg-none ms-2">Toggle theme</span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li>
-                <button class="dropdown-item" data-bs-theme-value="light">
-                  <i class="me-2 bi bi-sun-fill"></i> Light
-                </button>
-              </li>
-              <li>
-                <button class="dropdown-item" data-bs-theme-value="dark">
-                  <i class="me-2 bi bi-moon-stars-fill"></i> Dark
-                </button>
-              </li>
-              <li>
-                <button class="dropdown-item" data-bs-theme-value="auto">
-                  <i class="me-2 bi bi-circle-half"></i> Auto
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <div class="container mt-5">
-      <div id="login"></div>
-      <div id="output"></div>
-
-      <!-- Chat Button -->
-      <div id="chat-button" class="chat-button">
-        <button class="btn btn-primary" id="openChat">Chat</button>
-      </div>
-
-      <!-- Chat Window -->
-      <div id="chat-window" class="chat-window">
-        <div class="chat-header">
-          <h5>Chatbot</h5>
-          <div>
-            <button id="expandChat" class="btn btn-outline-light btn-sm">Expand</button>
-            <button id="closeChat" class="btn-close"></button>
-          </div>
-        </div>
-        <div id="chat-messages" class="chat-messages"></div>
-        <div class="chat-input">
-          <input type="text" id="user-input" placeholder="Type your message..." />
-          <button id="send-message" class="btn btn-success">Send</button>
-        </div>
-      </div>
-
-      <footer class="my-5 vh-50 d-flex align-items-center justify-content-center">
-        <h1 class="display-4">
-          Designed by
-          <a href="https://www.straive.com/" class="text-reset link-offset-3 link-underline link-underline-opacity-25"
-            >Straive</a
-          >
-        </h1>
-      </footer>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Welcome to the Data Reconciliation Tool</h1>
+        <p class="mt-4">Click the button below to reconcile your files.</p>
+        <a href="reconcile.html" class="btn btn-primary btn-reconcile">Reconcile Files</a>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/@gramex/ui@0.3/dist/dark-theme.js" type="module"></script>
-    <script src="script.js" type="module"></script>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

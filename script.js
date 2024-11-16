@@ -67,7 +67,7 @@ const fieldMapping = [
 
 let llmFoundryToken;
 // State to track current page and view type
-let isDetailedView = true;
+let isDetailedView = false;
 let currentPage = 1;
 const rowsPerPage = 10;
 
@@ -455,10 +455,10 @@ const updateReportTable = (reportData, section) => {
     `;
 
     // Render the appropriate view
-    if (isDetailedView) {
-      render(html`${detailedTableTemplate} ${curReportData.length > rowsPerPage ? paginationTemplate : ""}`, section);
-    } else {
+    if (!isDetailedView) {
       render(html`${summaryTableTemplate}`, section);
+    } else {
+      render(html`${detailedTableTemplate} ${curReportData.length > rowsPerPage ? paginationTemplate : ""}`, section);
     }
   };    
   // Initialize the table view

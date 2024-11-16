@@ -79,7 +79,7 @@ const loader = html`<div class="d-flex justify-content-center">
 
 const formTemplate = html`<h2 class="text-center">Data Reconcilation Tool</h2>
   <p class="lead mt-3">
-    "This tool empowers users to seamlessly upload and manage large datasets in various structured and semi-structured formats from both internal and external sources. It ensures data integrity with real-time quality checks and configurable reconciliation processes, offering comprehensive summaries and flagging any issues related to critical data elements. With AI-driven issue resolution, the tool provides users with efficient solutions to data discrepancies. Additionally, it generates detailed reports, giving you insights into data quality and reconciliation outcomes, supporting your organization's data governance and compliance needs."
+    This tool empowers users to seamlessly upload and manage large datasets in various structured and semi-structured formats from both internal and external sources. It ensures data integrity with real-time quality checks and configurable reconciliation processes, offering comprehensive summaries and flagging any issues related to critical data elements. With AI-driven issue resolution, the tool provides users with efficient solutions to data discrepancies. Additionally, it generates detailed reports, giving you insights into data quality and reconciliation outcomes, supporting your organization's data governance and compliance needs.
   </p>
 
   <!-- Static Section for File Uploads and Input -->
@@ -99,7 +99,7 @@ const formTemplate = html`<h2 class="text-center">Data Reconcilation Tool</h2>
     <!-- ISIN Input Field and Compare Button -->
     <div class="form-group mt-2">
       <label for="isinInput">Enter ISIN numbers (comma-separated):</label>
-      <input type="text" id="isinInput" class="form-control" placeholder="AU0000044828, AU0000169229, GB0001920486, GB0001990497, IE0000OEM636" />
+      <input type="text" id="isinInput" class="form-control" placeholder="ISIN1, ISIN2, ISIN3" />
       <button type="button" class="btn btn-success mt-2" id="compareButton">Reconcile</button>
     </div>
   </form>
@@ -124,9 +124,8 @@ const initializeApp = async () => {
       );
     } else {
       render(formTemplate, $output);
-      // Set default ISIN values
-      document.getElementById("isinInput").value = "AU0000044828, AU0000169229, GB0001920486, GB0001990497, IE0000OEM636"; // Set default ISINs
-      // checkFilesUploaded();
+      // const defaultISINs = "AU0000044828, AU0000169229, GB0001920486, GB0001990497, IE0000OEM636"; // Store default ISINs
+      // document.getElementById("isinInput").value = defaultISINs; // Set input field to blank
       setupEventListeners();
     }
   } catch (error) {
@@ -391,6 +390,9 @@ const updateReportTable = (reportData, section) => {
             if (categoryRows.length === 0) {
               return []; // No rows to display for this category
             }
+            const uniqueCategoryRows = Array.from(
+              new Map(categoryRows.map(row => [`${row.internalValue}-${row.externalValue}`, row])).values()
+            );
 
             return [
               html`
@@ -399,7 +401,7 @@ const updateReportTable = (reportData, section) => {
                   <td colspan="4"></td>
                 </tr>
               `,
-              ...categoryRows.map(
+              ...uniqueCategoryRows.map(
                 (row) => html`
                   <tr>
                     <td></td>
@@ -520,7 +522,8 @@ const compareISIN = async () => {
     : await loadDefaultFiles(defaultExternalFilePaths); // Load default external files if none uploaded
 
   const isinInput = document.querySelector("#isinInput").value;
-  const isinList = isinInput.split(",").map((isin) => isin.trim());
+  const defaultISINs = "AU0000044828, AU0000169229, GB0001920486, GB0001990497, IE0000OEM636"; // Default ISINs
+  const isinList = isinInput.trim() === "" ? defaultISINs.split(",").map((isin) => isin.trim()) : isinInput.split(",").map((isin) => isin.trim());
   console.log(isinInput);
   console.log(isinList);
 

@@ -507,11 +507,14 @@ window.compareISIN = async () => {
 
   const internalFiles = await loadDefaultFiles(defaultInternalFilePaths);
   const externalFiles = await loadDefaultFiles(defaultExternalFilePaths);
+  console.log(internalFiles);
+  console.log(externalFiles)
 
   const isinInput = document.querySelector("#isinInput").value;
   const defaultISINs = "AU0000044828, AU0000169229, GB0001920486, GB0001990497, IE0000OEM636"; // Default ISINs
   const isinList = isinInput.trim() === "" ? defaultISINs.split(",").map((isin) => isin.trim()) : isinInput.split(",").map((isin) => isin.trim());
-  
+  console.log(isinList);
+
   let internalData = {};
   let externalData = {};
 

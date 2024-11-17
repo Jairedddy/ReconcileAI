@@ -78,29 +78,16 @@ const loader = html`<div class="d-flex justify-content-center">
 </div>`;
 
 const formTemplate = html`<h2 class="text-center">Data Reconcilation Tool</h2>
-  <p class="lead mt-3">
-    This tool empowers users to seamlessly upload and manage large datasets in various structured and semi-structured formats from both internal and external sources. It ensures data integrity with real-time quality checks and configurable reconciliation processes, offering comprehensive summaries and flagging any issues related to critical data elements. With AI-driven issue resolution, the tool provides users with efficient solutions to data discrepancies. Additionally, it generates detailed reports, giving you insights into data quality and reconciliation outcomes, supporting your organization's data governance and compliance needs.
-  </p>
 
   <!-- Static Section for File Uploads and Input -->
   <form id="upload-form">
-    <div class="d-flex align-items-center flex-column mt-4">
-      <div class="form-group">
-        <label for="internalFile">Upload Internal Files (CSV):</label>
-        <input type="file" id="internalFile" class="form-control-file" accept=".csv" multiple />
-      </div>
-
-      <div class="form-group mt-3">
-        <label for="externalFile">Upload External Files (CSV):</label>
-        <input type="file" id="externalFile" class="form-control-file" accept=".csv" multiple />
-      </div>
+    <!-- Centered Reconcile Button -->
+    <div class="text-center mt-2">
+      <button type="button" class="btn" style="background-color: #7F7F7F; color: white;" id="compareButton">Reconcile</button>
     </div>
-
-    <!-- ISIN Input Field and Compare Button -->
-    <div class="form-group mt-2">
-      <label for="isinInput">Enter ISIN numbers (comma-separated):</label>
-      <input type="text" id="isinInput" class="form-control" placeholder="ISIN1, ISIN2, ISIN3" />
-      <button type="button" class="btn btn-success mt-2" id="compareButton">Reconcile</button>
+    <!-- ISIN Input Field -->
+    <label for="isinInput">Enter ISIN numbers (comma-separated):</label>
+    <input type="text" id="isinInput" class="form-control"/>
     </div>
   </form>
 
@@ -108,6 +95,10 @@ const formTemplate = html`<h2 class="text-center">Data Reconcilation Tool</h2>
   <div id="report-section" class="mt-5"></div>`;
 
 const initializeApp = async () => {
+  // Set the default theme to light
+  document.body.classList.remove('bg-dark'); // Ensure dark theme is removed
+  document.body.classList.add('bg-light'); // Optionally add light theme class if needed
+
   try {
     const response = await fetch("https://llmfoundry.straive.com/token", { credentials: "include" });
     console.log(response);
@@ -277,13 +268,13 @@ const updateReportTable = (reportData, section) => {
         <h3 class="lead">Recon Report</h3>
         <div>
           <button
-            class=${`btn mb-3 ${isDetailedView ? "btn-success" : "btn-primary"}`}
+            class="btn btn-secondary mb-3"
             @click=${toggleView}
             title="Toggle View"
           >
             ${isDetailedView ? "Recon Summary" : "Recon Report"}
           </button>
-          <button class="btn btn-success mb-3" @click=${() => downloadCSV(curReportData)} title="Download CSV">
+          <button class="btn btn-secondary mb-3" @click=${() => downloadCSV(curReportData)} title="Download CSV">
             <i class="bi bi-download"></i>
           </button>
         </div>
@@ -328,7 +319,7 @@ const updateReportTable = (reportData, section) => {
                       ${!row.matched
                         ? html`<button
                             type="button"
-                            class="btn btn-primary btn-sm text-nowrap"
+                            class="btn btn-secondary btn-sm text-nowrap"
                             @click=${() => resolveRow(row.id, curReportData)}
                           >
                             <i class="bi bi-check-circle"></i> Resolve
@@ -350,20 +341,20 @@ const updateReportTable = (reportData, section) => {
         <h3 class="lead">Summary Report</h3>
         <div>
           <button
-            class=${`btn mb-3 ${isDetailedView ? "btn-success" : "btn-primary"}`}
+            class="btn btn-secondary mb-3"
             @click=${toggleView}
             title="Toggle View"
           >
             ${isDetailedView ? "Recon Summary" : "Recon Report"}
           </button>
-          <button class="btn btn-success mb-3" @click=${() => downloadCSV(curReportData)} title="Download CSV">
+          <button class="btn btn-secondary mb-3" @click=${() => downloadCSV(curReportData)} title="Download CSV">
             <i class="bi bi-download"></i>
           </button>
         </div>
       </div>
-      <div>
-        <h4>Passed: <span>${calculateComparisonStats(true)}</span></h4>
-        <h4>Failed: <span>${calculateComparisonStats()}</span></h4>
+      <div class="d-flex justify-content-between">
+        <h4 class="small">Passed: <span>${calculateComparisonStats(true)}</span></h4>
+        <h4 class="small">Failed: <span>${calculateComparisonStats()}</span></h4>
       </div>
       <table class="table table-striped table-hover rounded-3">
         <thead class="thead-light bg-light">
@@ -412,9 +403,9 @@ const updateReportTable = (reportData, section) => {
                       ${!row.matched
                         ? html`<button
                             type="button"
+                            class="btn btn-secondary btn-sm text-nowrap"
                             @click=${() =>
                               resolveSimilarRows(curReportData, category, row.internalValue, row.externalValue)}
-                            class="btn btn-primary btn-sm text-nowrap"
                           >
                             <i class="bi bi-check-circle"></i> Resolve All
                           </button>`
@@ -509,33 +500,24 @@ const defaultExternalFilePaths = [
 // Declare a global variable to hold the final report data
 let finalReportData = [];
 
-const compareISIN = async () => {
+// Declare the compareISIN function in the global scope
+window.compareISIN = async () => {
   const $reportSection = document.querySelector("#report-section");
   render(loader, $reportSection);
 
-  const internalFiles = document.querySelector("#internalFile").files.length > 0 
-    ? document.querySelector("#internalFile").files 
-    : await loadDefaultFiles(defaultInternalFilePaths); // Load default internal files if none uploaded
-
-  const externalFiles = document.querySelector("#externalFile").files.length > 0 
-    ? document.querySelector("#externalFile").files 
-    : await loadDefaultFiles(defaultExternalFilePaths); // Load default external files if none uploaded
+  const internalFiles = await loadDefaultFiles(defaultInternalFilePaths);
+  const externalFiles = await loadDefaultFiles(defaultExternalFilePaths);
 
   const isinInput = document.querySelector("#isinInput").value;
   const defaultISINs = "AU0000044828, AU0000169229, GB0001920486, GB0001990497, IE0000OEM636"; // Default ISINs
   const isinList = isinInput.trim() === "" ? defaultISINs.split(",").map((isin) => isin.trim()) : isinInput.split(",").map((isin) => isin.trim());
-  console.log(isinInput);
-  console.log(isinList);
-
+  
   let internalData = {};
   let externalData = {};
 
-  // Define the key names for ISIN in internal and external files
   const internalIsinKey = "ClassIdentifier"; // Replace this with the actual key name in internal data
   const externalIsinKey = "ISIN"; // Key name in external data
 
-  console.log(internalFiles);
-  console.log(externalFiles);
   // Function to process files
   const processInternalFiles = Array.from(internalFiles).map((file) => {
     return new Promise((resolve) => {
@@ -670,6 +652,22 @@ const initializeChat = () => {
     messages.classList.toggle('dark', isDarkTheme);
   };
 
+  // Function to create chat bubbles
+  const createChatBubbles = () => {
+    const sampleQuestions = ["List all the isisn with domicile value as GB in internal value.", "Give me the list of ISIN's where status is Inactive for Domicile"];
+    sampleQuestions.forEach(question => {
+      const bubble = document.createElement("div");
+      bubble.className = "chat-bubble"; // Ensure this class styles the bubble
+      bubble.textContent = question;
+      bubble.addEventListener("click", async () => {
+        appendMessage("You", question, "user-message");
+        userInput.value = ""; // Clear input field
+        await sendMessage(question); // Send the selected question to the chatbot
+      });
+      chatMessages.appendChild(bubble);
+    });
+  };
+
   // Open chat window and minimize if already open
   chatButton.addEventListener("click", () => {
     if (chatWindow.style.display === "block") {
@@ -678,6 +676,7 @@ const initializeChat = () => {
       chatWindow.style.display = "block"; // Open chat window
       userInput.focus();
       updateChatTheme(); // Update theme when chat window opens
+      createChatBubbles(); // Create chat bubbles on open
     }
   });
 
@@ -696,18 +695,20 @@ const initializeChat = () => {
     }
   });
 
-  // Send message
-  const sendMessage = async () => {
-    const message = userInput.value.trim();
+  // Send message function
+  const sendMessage = async (message) => {
+    if (!message) {
+      message = userInput.value.trim(); // Use user input if no message is provided
+    }
     if (message) {
       appendMessage("You", message, "user-message"); // Append user message
-      userInput.value = "";
-      const response = await getChatbotResponse(message); // Call without passing reportData
+      userInput.value = ""; // Clear input field
+      const response = await getChatbotResponse(message); // Get chatbot response
       appendMessage("Bot", response, "bot-message"); // Append bot message
     }
   };
 
-  sendMessageButton.addEventListener("click", sendMessage);
+  sendMessageButton.addEventListener("click", () => sendMessage());
 
   // Send message on Enter key press
   userInput.addEventListener("keydown", (event) => {

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spark ai | Data Reconciliation App</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #F2F2F2;
+        }
+
+        .header {
+            background-color: #595959;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: white;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .search-input {
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: none;
+            width: 200px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #404040;
+        }
+
+        .upload-section {
+            margin-top: 2rem;
+        }
+
+        .upload-containers {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .upload-box {
+            border: 2px dashed #ccc;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            min-height: 100px;
+            position: relative;
+            background-color: #f8f9fa;
+        }
+
+        .upload-box.active {
+            border-color: #595959;
+            background-color: #f0f0ff;
+        }
+
+        .cloud-icon {
+            font-size: 3rem;
+            color: #595959;
+            margin-bottom: 1rem;
+        }
+
+        .upload-text {
+            margin-bottom: 0.5rem;
+        }
+
+        .file-list {
+            text-align: left;
+            margin-top: 1rem;
+        }
+
+        .file-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+            color: #666;
+        }
+
+        .file-info {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .record-count {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .file-total {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        .run-report {
+            margin: 2rem auto;
+            padding: 0.75rem 2rem;
+            background-color: #808080;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .run-report:hover {
+            background-color: #6a6a6a;
+        }
+
+        .loading {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .supported-formats {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .upload-instructions {
+            white-space: pre-line;
+        }
+
+        #internal-textbox {
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .upload-summary {
+            display: none;
+            margin-top: 1rem;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-star"></i>
+            <span>Data Reconciliation App</span>
+        </div>
+        <nav class="nav">
+            <a href="index.html"><span>Dashboard</span></a>
+            <a href="postDashboard.html"><span>Upload Files</span></a>
+            <a href="reconcile.html"><span>Report</span></a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2 class="page-title">Upload Files for Reconciliation</h2>
+        <div class="upload-containers">
+            <div class="upload-box" id="internal-upload" ondrop="dropHandler(event, 'internal')" ondragover="dragOverHandler(event)">
+                <i class="fas fa-cloud-upload-alt cloud-icon"></i>
+                <div class="upload-instructions">Upload Internal Data, or 
+Drag & Drop Your files here</div>
+                <div class="supported-formats">Supported formats: CSV and XLSX</div>
+                <input type="file" id="internal-file" multiple style="display: none" onchange="handleFileSelect(event, 'internal')" accept=".csv,.xlsx">
+                <div class="file-list" id="internal-files"></div>
+                <div class="file-total" id="internal-total"></div>
+                <div class="loading" id="internal-loading">
+                    <i class="fas fa-spinner fa-spin fa-2x"></i>
+                </div>
+            </div>
+
+            <div class="upload-summary" id="internal-textbox">
+                <div class="upload-instructions">Uploaded Data Summary:</div>
+                <div class="supported-formats" id="dummy-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+            </div>
+
+            <div class="upload-box" id="external-upload" ondrop="dropHandler(event, 'external')" ondragover="dragOverHandler(event)">
+                <i class="fas fa-cloud-upload-alt cloud-icon"></i>
+                <div class="upload-instructions">Upload Third Party Data, or 
+Drag & Drop Your files here</div>
+                <div class="supported-formats">Supported formats: CSV and XLSX</div>
+                <input type="file" id="external-file" multiple style="display: none" onchange="handleFileSelect(event, 'external')" accept=".csv,.xlsx">
+                <div class="file-list" id="external-files"></div>
+                <div class="file-total" id="external-total"></div>
+                <div class="loading" id="external-loading">
+                    <i class="fas fa-spinner fa-spin fa-2x"></i>
+                </div>
+            </div>
+
+            <div class="upload-summary" id="external-textbox">
+                <div class="upload-instructions">Uploaded Data Summary:</div>
+                <div class="supported-formats" id="external-dummy-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+            </div>
+        </div>
+        
+        <button class="run-report" id="run-report" onclick="runReport()">Upload Files</button>
+    </div>
+
+    <script>
+        document.querySelectorAll('.upload-box').forEach(box => {
+            box.addEventListener('click', () => {
+                const input = box.querySelector('input[type="file"]');
+                input.click();
+            });
+        });
+
+        function dragOverHandler(event) {
+            event.preventDefault();
+            event.currentTarget.classList.add('active');
+        }
+
+        function dropHandler(event, type) {
+            event.preventDefault();
+            event.currentTarget.classList.remove('active');
+            const files = event.dataTransfer.files;
+            handleFiles(files, type);
+        }
+
+        function handleFileSelect(event, type) {
+            const files = event.target.files;
+            handleFiles(files, type);
+        }
+
+        function countRecords(file) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const text = e.target.result;
+                    const lines = text.split('\n').filter(line => line.trim());
+                    // Subtract 1 to account for header row
+                    resolve(Math.max(0, lines.length - 1));
+                };
+                reader.readAsText(file);
+            });
+        }
+
+        async function handleFiles(files, type) {
+            const loadingElement = document.getElementById(`${type}-loading`);
+            const fileList = document.getElementById(`${type}-files`);
+            const totalElement = document.getElementById(`${type}-total`);
+            const textBox = document.getElementById(`${type}-textbox`);
+            
+            loadingElement.style.display = 'block';
+            
+            // Process each file
+            fileList.innerHTML = '';
+            for (const file of Array.from(files)) {
+                const recordCount = await countRecords(file);
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                fileItem.innerHTML = `
+                    <div class="file-info">
+                        <i class="fas fa-file-csv"></i>
+                        <span>- ${file.name}</span>
+                        <span class="record-count">(${recordCount} records)</span>
+                    </div>
+                `;
+                fileList.appendChild(fileItem);
+            }
+            
+            totalElement.innerHTML = `Total Files Uploaded - ${files.length}`;
+            
+            // Show loader for 1.5 seconds
+            setTimeout(() => {
+                loadingElement.style.display = 'none';
+                textBox.style.display = 'block'; // Show the new card
+            }, 1500);
+            
+            document.getElementById('run-report').style.display = 'block';
+        }
+
+        function runReport() {
+            window.location.href = 'reconcile.html';
+        }
+    </script>
+</body>
+</html>

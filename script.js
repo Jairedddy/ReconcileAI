@@ -232,6 +232,7 @@ const setupEventListeners = () => {
 
 // Function to update the output using lit-html
 const updateReportTable = (reportData, section) => {
+  console.log("Report Data:", reportData); // Check if reportData is available
   // Function to change view
   const toggleView = () => {
     isDetailedView = !isDetailedView;
@@ -368,6 +369,7 @@ const updateReportTable = (reportData, section) => {
         </thead>
         <tbody>
           ${summaryMapping.flatMap((category) => {
+            console.log("Processing category:", category); // Check category processing
             const categoryRows = curReportData.filter(
               (row) => row.fieldName === category && row.internalValue !== row.externalValue,
             );
